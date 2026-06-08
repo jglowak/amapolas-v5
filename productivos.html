@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos Agroecológicos — Amapolas · Bariloche</title>
+<meta name="description" content="Apiario Colectivo, Plantas Nativas y Hongos Silvestres. Tres proyectos de economía regenerativa de la Cooperativa Amapolas en territorio patagónico. Sin agroquímicos, con soberanía alimentaria.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#24252e;--rojo:#ed694b;--verde:#376135;--crema:#eae9e2;--font:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--crema);color:var(--azul);overflow-x:hidden}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-style:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;transition:background .4s,box-shadow .4s,padding .3s}
+nav.solid{background:var(--crema);box-shadow:0 1px 0 rgba(36,37,46,.1);padding:1rem 4rem}
+nav.over-bg .nav-logo-color{display:none}nav.over-bg .nav-logo-neg{display:block}
+nav.solid .nav-logo-color{display:block}nav.solid .nav-logo-neg{display:none}
+.nav-logo-color,.nav-logo-neg{height:36px;display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:.875rem;font-weight:600;letter-spacing:.03em;opacity:.75;transition:opacity .2s,color .4s}
+nav.over-bg .nav-links a{color:white}nav.solid .nav-links a{color:var(--azul)}.nav-links a:hover{opacity:1}
+nav.solid .nav-links a.active{opacity:1;border-bottom:2px solid var(--rojo);padding-bottom:2px}
+.nav-links .cta{opacity:1!important;padding:.6rem 1.5rem;border-radius:2px;transition:background .2s,color .2s;border:none!important}
+nav.over-bg .nav-links .cta{background:white;color:var(--rojo)!important}nav.solid .nav-links .cta{background:var(--rojo);color:#fff!important}nav.solid .nav-links .cta:hover{background:#d4533a}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;transition:background .4s}
+nav.over-bg .hamburger span{background:white}nav.solid .hamburger span{background:var(--azul)}
+.mobile-overlay{display:none;position:fixed;inset:0;z-index:98;background:var(--azul);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;overflow-y:auto;padding:4rem 2rem}
+.mobile-overlay.open{display:flex}.mobile-overlay a{font-size:1.8rem;font-weight:800;color:white;letter-spacing:-.02em;transition:color .2s}.mobile-overlay a:hover{color:var(--rojo)}
+.mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;font-size:1.8rem;cursor:pointer;color:white}
+.mob-accordion{display:flex;flex-direction:column;align-items:center;gap:.5rem}.mob-acc-btn{background:none;border:none;cursor:pointer;font-family:var(--font);font-size:1.8rem;font-weight:800;color:white;letter-spacing:-.02em;display:flex;align-items:center;gap:.5rem;transition:color .2s}.mob-acc-btn:hover{color:var(--rojo)}.mob-acc-arrow{font-size:1rem;transition:transform .25s;display:inline-block}.mob-acc-btn.open .mob-acc-arrow{transform:rotate(180deg)}.mob-acc-panel{display:none;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem 0}.mob-acc-panel.open{display:flex}.mob-acc-panel a{font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:-.01em;transition:color .2s}.mob-acc-panel a:hover{color:white}
+.nav-item{position:relative}.nav-dropdown{display:none;position:absolute;top:100%;padding-top:.8rem;left:50%;transform:translateX(-50%);background:white;border-radius:3px;box-shadow:0 8px 32px rgba(36,37,46,.14);min-width:220px;overflow:hidden;z-index:200}.nav-item:hover .nav-dropdown{display:block}.nav-dropdown a{display:flex;align-items:center;gap:.8rem;padding:.85rem 1.2rem;font-size:.82rem;font-weight:600;color:var(--azul)!important;opacity:1!important;border-bottom:1px solid rgba(36,37,46,.06);transition:background .15s}.nav-dropdown a:last-child{border-bottom:none}.nav-dropdown a:hover{background:var(--crema)}.nav-dropdown-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.7rem 1.2rem .3rem;color:rgba(36,37,46,.3);display:block}.has-dropdown>a::after{content:'▾';font-size:.65rem;margin-left:.3rem;opacity:.5;vertical-align:middle}
+.nav-lang{display:flex;align-items:center;gap:.2rem}.lang-btn{font-size:.72rem!important;font-weight:700;letter-spacing:.1em;opacity:.38!important;transition:opacity .2s}.lang-btn:hover,.lang-btn.lang-active{opacity:1!important}.lang-sep{font-size:.65rem;opacity:.2}nav.over-bg .lang-btn{color:white}nav.solid .lang-btn{color:var(--azul)}.mob-lang{display:flex;align-items:center;gap:.4rem}.mob-lang .lang-btn{font-size:1rem!important;font-weight:700;color:rgba(255,255,255,.4)}.mob-lang .lang-btn.lang-active{color:white;opacity:1!important}.mob-lang .lang-sep{color:rgba(255,255,255,.2);font-size:.9rem}
+
+/* HERO */
+.hero{min-height:62vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:var(--verde)}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(36,37,46,.9) 0%,rgba(36,37,46,.4) 55%,rgba(36,37,46,.15) 100%)}
+.hero-overlay-top{position:absolute;top:0;left:0;right:0;height:180px;z-index:1;background:linear-gradient(to bottom,rgba(36,37,46,.75),transparent)}
+.hero-body{position:relative;z-index:2;padding:130px 4rem 4rem;max-width:860px}
+.hero-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:2rem}
+.hero-breadcrumb a{color:rgba(255,255,255,.35);transition:color .2s}.hero-breadcrumb a:hover{color:white}.hero-breadcrumb span{color:rgba(255,255,255,.18)}
+.hero-title{font-size:clamp(2.8rem,5vw,5.5rem);font-weight:800;line-height:.95;letter-spacing:-.04em;color:white;margin-bottom:1.5rem}
+.hero-subtitle{font-size:1rem;line-height:1.78;color:rgba(255,255,255,.55);max-width:560px}
+.proyecto-nav{position:relative;z-index:2;display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1)}
+.proyecto-nav a{flex:1;padding:1.1rem 1.5rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);border-right:1px solid rgba(255,255,255,.08);text-align:center;transition:color .2s,background .2s}
+.proyecto-nav a:last-child{border-right:none}.proyecto-nav a:hover{color:white;background:rgba(255,255,255,.06)}
+
+/* CHAPTER */
+.chapter{padding:3.5rem 4rem 2.5rem;display:flex;align-items:center;gap:2rem;border-bottom:1px solid rgba(36,37,46,.08)}
+.chapter.verde{background:var(--verde)}.chapter.rojo{background:var(--rojo)}.chapter.dark{background:#2e3040}
+.chapter-num{font-size:clamp(3.5rem,6vw,5.5rem);font-weight:800;line-height:1;letter-spacing:-.06em;color:rgba(255,255,255,.12);user-select:none}
+.chapter-tag{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.5rem}
+.chapter-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-.03em;line-height:1;color:white}
+
+/* RESUMEN */
+.resumen{background:white;padding:5rem 4rem}
+.resumen-inner{display:grid;grid-template-columns:6fr 4fr;gap:5rem;max-width:1200px;margin:0 auto}
+.section-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rojo);margin-bottom:1rem}
+.section-eyebrow.verde{color:var(--verde)}
+.section-title{font-size:clamp(1.6rem,2.4vw,2.2rem);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-bottom:1.5rem}
+.prose p{font-size:1rem;line-height:1.88;color:rgba(36,37,46,.62);margin-bottom:1.2rem}.prose p:last-child{margin-bottom:0}.prose p strong{color:var(--azul);font-weight:700}
+.datos-clave{display:flex;flex-direction:column;gap:.7rem}
+.dato{padding:1.2rem 1.4rem;background:var(--crema);border-radius:3px}
+.dato-label{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(36,37,46,.32);margin-bottom:.35rem}
+.dato-val{font-size:.92rem;font-weight:700;color:var(--azul);line-height:1.4}
+.dato.estado{border-left:3px solid var(--verde);background:rgba(55,97,53,.06)}.dato.estado .dato-val{color:var(--verde)}
+.dato.atencion{border-left:3px solid var(--rojo);background:rgba(237,105,75,.05)}.dato.atencion .dato-val{color:var(--rojo)}
+
+/* OBJETIVO FINANCIERO POR PROYECTO */
+.obj-proyecto{padding:2rem 4rem;background:var(--azul)}
+.obj-proyecto-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+.obj-proyecto-text .eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.4rem}
+.obj-proyecto-text h3{font-size:1.1rem;font-weight:800;color:white;letter-spacing:-.02em;margin-bottom:.3rem}
+.obj-proyecto-text p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.55}
+.obj-proyecto-metas{display:flex;gap:.8rem;flex-wrap:wrap}
+.obj-meta-chip{padding:.5rem 1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:2px;text-align:center}
+.obj-meta-chip .val{font-size:1.2rem;font-weight:800;color:white;display:block;letter-spacing:-.025em}
+.obj-meta-chip .lbl{font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:block;margin-top:.15rem}
+.obj-meta-chip.dest{border-color:var(--rojo);background:rgba(237,105,75,.12)}
+.obj-meta-chip.dest .val{color:var(--rojo)}
+.btn-obj-sm{display:inline-flex;align-items:center;gap:.4rem;background:var(--rojo);color:white;font-size:.82rem;font-weight:800;padding:.7rem 1.4rem;border-radius:2px;transition:background .2s;white-space:nowrap}
+.btn-obj-sm:hover{background:#d4533a}
+
+/* ODS HIGHLIGHT */
+.ods-highlight{margin-top:1.5rem;display:flex;flex-direction:column;gap:.6rem}
+.ods-item{padding:1rem 1.2rem;background:rgba(55,97,53,.07);border-left:3px solid var(--verde);border-radius:0 3px 3px 0}
+.ods-item.rojo-border{background:rgba(237,105,75,.07);border-left-color:var(--rojo)}
+.ods-item .ods-num{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--verde);margin-bottom:.3rem}
+.ods-item.rojo-border .ods-num{color:var(--rojo)}
+.ods-item p{font-size:.83rem;line-height:1.65;color:rgba(36,37,46,.65)}
+.ods-item strong{color:var(--azul);font-weight:700}
+
+/* MÉTRICAS */
+.metricas{display:flex;gap:0;border-top:1px solid rgba(36,37,46,.07);border-bottom:1px solid rgba(36,37,46,.07);background:var(--crema)}
+.metrica{flex:1;padding:1.4rem 2rem;border-right:1px solid rgba(36,37,46,.07)}.metrica:last-child{border-right:none}
+.metrica-num{font-size:1.8rem;font-weight:800;letter-spacing:-.04em;line-height:1}
+.metrica-num.verde{color:var(--verde)}.metrica-num.rojo{color:var(--rojo)}.metrica-num.azul{color:var(--azul)}
+.metrica-label{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(36,37,46,.38);margin-top:.3rem}
+
+/* GALERÍA */
+.galeria{background:var(--crema);padding:4rem}
+.galeria-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2rem}
+.galeria-header h3{font-size:1.2rem;font-weight:800;letter-spacing:-.02em}
+.galeria-note{font-size:.72rem;color:rgba(36,37,46,.38)}
+.galeria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.galeria-item{aspect-ratio:4/3;position:relative;overflow:hidden;border-radius:3px;cursor:pointer;background:rgba(36,37,46,.08);display:flex;align-items:center;justify-content:center}
+.galeria-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}.galeria-item:hover img{transform:scale(1.05)}
+.galeria-item-overlay{position:absolute;inset:0;background:rgba(36,37,46,0);transition:background .3s;display:flex;align-items:center;justify-content:center}.galeria-item:hover .galeria-item-overlay{background:rgba(36,37,46,.25)}
+.galeria-zoom{opacity:0;transition:opacity .3s;color:white;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.galeria-item:hover .galeria-zoom{opacity:1}
+.galeria-placeholder-text{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(36,37,46,.2)}
+
+/* OBJETIVOS / PROCESO */
+.objetivos{background:white;padding:4rem}
+.objetivos-inner{max-width:1200px;margin:0 auto}
+.objetivos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(36,37,46,.07);margin-top:2rem}
+.objetivo{background:white;padding:2rem 1.8rem;transition:background .2s}.objetivo:hover{background:var(--crema)}
+.objetivo-icon{width:36px;height:36px;border-radius:50%;background:rgba(55,97,53,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.objetivo-icon svg{width:16px;height:16px}
+.objetivo h4{font-size:.9rem;font-weight:800;margin-bottom:.5rem}.objetivo p{font-size:.83rem;line-height:1.7;color:rgba(36,37,46,.55)}
+.proceso-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(36,37,46,.07);margin-top:2rem}
+.paso{background:white;padding:2rem 1.8rem;transition:background .2s}.paso:hover{background:var(--crema)}
+.paso-num{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--verde);margin-bottom:.8rem}
+.paso h4{font-size:.9rem;font-weight:800;margin-bottom:.5rem}.paso p{font-size:.83rem;line-height:1.7;color:rgba(36,37,46,.55)}
+.alianzas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:2rem}
+.alianza-card{background:var(--crema);border-radius:3px;padding:1.4rem 1.6rem}
+.alianza-nombre{font-size:.88rem;font-weight:800;margin-bottom:.3rem}.alianza-desc{font-size:.8rem;line-height:1.6;color:rgba(36,37,46,.52)}
+
+/* TIMELINE */
+.estado{background:var(--crema);padding:4rem}
+.estado-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:5fr 7fr;gap:5rem;align-items:start}
+.timeline{display:flex;flex-direction:column;gap:0}
+.timeline-item{display:flex;gap:1.4rem;padding:1.2rem 0;border-bottom:1px solid rgba(36,37,46,.07)}.timeline-item:last-child{border:none}
+.timeline-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:.4rem}
+.timeline-dot.done{background:var(--verde)}.timeline-dot.active{background:var(--rojo)}.timeline-dot.pending{background:rgba(36,37,46,.2)}
+.timeline-content h5{font-size:.88rem;font-weight:700;color:var(--azul);margin-bottom:.25rem}
+.timeline-content p{font-size:.8rem;line-height:1.6;color:rgba(36,37,46,.52)}
+.timeline-year{font-size:.6rem;font-weight:700;letter-spacing:.1em;color:rgba(36,37,46,.28);margin-top:.25rem;display:block}
+
+/* TERRITORIO DARK */
+.territorio-dark{background:var(--azul);padding:4rem}
+.territorio-dark-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.territorio-dark .section-eyebrow{color:rgba(255,255,255,.35)}.territorio-dark .section-title{color:white}
+.territorio-desc{font-size:.95rem;line-height:1.78;color:rgba(255,255,255,.5);margin-bottom:1.5rem}
+.territorio-cards{display:flex;flex-direction:column;gap:.7rem}
+.territorio-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:3px;padding:1.5rem 1.8rem}
+.territorio-card h4{font-size:.86rem;font-weight:800;color:white;margin-bottom:.4rem}
+.territorio-card p{font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.42)}
+
+/* HONGOS — módulo economía regenerativa */
+.hongos-regen{background:var(--crema);padding:4rem}
+.hongos-regen-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:5fr 7fr;gap:4rem;align-items:start}
+.hongos-regen .section-eyebrow{color:rgba(36,37,46,.5)}
+.regen-puntos{display:flex;flex-direction:column;gap:.7rem;margin-top:1.5rem}
+.regen-punto{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.2rem;background:white;border-radius:3px}
+.regen-punto-num{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--verde);min-width:26px;padding-top:3px}
+.regen-punto-text h5{font-size:.88rem;font-weight:700;margin-bottom:.2rem}
+.regen-punto-text p{font-size:.8rem;line-height:1.6;color:rgba(36,37,46,.55)}
+
+/* SEPARATOR */
+.proyecto-sep{height:1px;background:rgba(36,37,46,.1)}
+
+/* DONAR CTA */
+.donar-cta{background:var(--verde);padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.donar-cta-text .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:1rem}
+.donar-cta-text h2{font-size:clamp(2rem,3vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:white;margin-bottom:1.2rem}
+.donar-cta-text p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.6)}
+.donar-cta-actions{display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:white;color:var(--verde);padding:1rem 2.2rem;border-radius:2px;font-weight:800;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-outline-white{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid rgba(255,255,255,.3);color:white;padding:.9rem 2rem;border-radius:2px;font-weight:600;font-size:.88rem;transition:border-color .2s,background .2s}
+.btn-outline-white:hover{border-color:white;background:rgba(255,255,255,.08)}
+.donar-note{font-size:.68rem;color:rgba(255,255,255,.28);letter-spacing:.04em}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(10,10,14,.94);align-items:center;justify-content:center;padding:2rem}
+.lightbox.open{display:flex}
+.lightbox-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:2px}
+.lightbox-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:white;font-size:1.6rem;cursor:pointer;opacity:.6;transition:opacity .2s}.lightbox-close:hover{opacity:1}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;opacity:.4;transition:opacity .2s;padding:1rem}.lightbox-nav:hover{opacity:1}
+.lightbox-prev{left:1rem}.lightbox-next{right:1rem}
+.lightbox-caption{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:.06em;white-space:nowrap}
+
+/* FOOTER */
+footer{background:var(--azul);color:white;padding:4rem 4rem 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+footer img.foot-logo{height:30px;margin-bottom:1.2rem;display:block;filter:brightness(0) invert(1)}
+.foot-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.3);max-width:260px}
+.foot-col h5{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:1.2rem}
+.foot-col li{margin-bottom:.65rem}.foot-col a{color:rgba(255,255,255,.5);font-size:.85rem;font-weight:500;transition:color .2s}.foot-col a:hover{color:var(--rojo)}
+.footer-bottom{padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.18)}
+.foot-social{display:flex;gap:.8rem}.foot-social a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.7rem;font-weight:700;transition:all .2s}.foot-social a:hover{border-color:var(--rojo);color:white;background:var(--rojo)}
+.scroll-top{position:fixed;bottom:2rem;right:2rem;z-index:50;width:44px;height:44px;background:var(--azul);color:white;border:none;border-radius:50%;cursor:pointer;font-size:1rem;opacity:0;transition:opacity .3s,background .2s;pointer-events:none}
+.scroll-top.on{opacity:1;pointer-events:all}.scroll-top:hover{background:var(--rojo)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1100px){
+  nav,nav.solid{padding:1rem 2rem}.nav-links{display:none}.hamburger{display:flex}
+  .hero-body{padding:100px 2rem 4rem}
+  .chapter{padding:2.5rem 2rem 2rem;gap:1.2rem}
+  .resumen,.galeria,.objetivos,.estado,.territorio-dark,.hongos-regen{padding:3rem 2rem}
+  .resumen-inner{grid-template-columns:1fr;gap:2.5rem}
+  .metricas{flex-wrap:wrap}.metrica{min-width:50%}
+  .objetivos-grid,.proceso-grid{grid-template-columns:1fr}
+  .alianzas-grid{grid-template-columns:1fr}
+  .estado-inner{grid-template-columns:1fr;gap:2.5rem}
+  .territorio-dark-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hongos-regen-inner{grid-template-columns:1fr;gap:2.5rem}
+  .obj-proyecto{padding:2rem}.obj-proyecto-inner{flex-direction:column;align-items:flex-start}
+  .donar-cta{grid-template-columns:1fr;gap:2rem;padding:4rem 2rem}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}footer{padding:3rem 2rem 1.5rem}
+  .proyecto-nav{flex-wrap:wrap}.proyecto-nav a{flex:none;width:50%}
+}
+@media(max-width:640px){
+  .galeria-grid{grid-template-columns:1fr 1fr}.footer-top{grid-template-columns:1fr}
+  .metricas{flex-direction:column}.metrica{min-width:100%}.proyecto-nav a{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar" class="over-bg">
+  <a href="/">
+    <img src="/logo_web.png" alt="Amapolas Cooperativa de Viviendas" class="nav-logo-color">
+    <img src="/logo_web_neg2.png" alt="Amapolas Cooperativa de Viviendas" class="nav-logo-neg">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li class="nav-item has-dropdown">
+      <a href="/nosotras">Nosotras</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Nosotras</span>
+        <a href="/nosotras/genero">Género</a>
+        <a href="/nosotras/sustentabilidad">Hábitat Sustentable</a>
+        <a href="/nosotras/interculturalidad">Interculturalidad</a>
+        <a href="/nosotras/cohousing">Cuidado y Cohousing</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/proyectos" class="active">Proyectos</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Proyectos</span>
+        <a href="/proyectos/vivienda">Barrio Amapolas</a>
+        <a href="/proyectos/productivos">Proyectos agroecológicos</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/prensa">Acciones y Prensa</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Acciones y Prensa</span>
+        <a href="/prensa#eventos">Eventos / Charlas / Capacitaciones</a>
+        <a href="/prensa">Prensa</a>
+        <a href="/prensa#kit">Kit de Prensa</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/comunidad">Comunidad</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Comunidad</span>
+        <a href="/comunidad#aliados">Aliados</a>
+        <a href="/comunidad#fundaciones">Fundaciones y Organizaciones</a>
+        <a href="/comunidad#sponsors">Sponsors</a>
+        <a href="/comunidad#donantes">Donantes</a>
+        <a href="/comunidad#comunidad">Comunidad</a>
+      </div>
+    </li>
+    <li class="nav-lang">
+      <a href="?lang=es" class="lang-btn lang-active">ES</a>
+      <span class="lang-sep">/</span>
+      <a href="?lang=en" class="lang-btn">EN</a>
+    </li>
+    <li><a href="/#donar" class="cta">Donar ahora</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+  <a href="/" onclick="document.getElementById('mob').classList.remove('open')">Home</a>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Nosotras <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/nosotras" onclick="document.getElementById('mob').classList.remove('open')">Nosotras</a>
+      <a href="/nosotras/genero" onclick="document.getElementById('mob').classList.remove('open')">Género</a>
+      <a href="/nosotras/sustentabilidad" onclick="document.getElementById('mob').classList.remove('open')">Hábitat Sustentable</a>
+      <a href="/nosotras/interculturalidad" onclick="document.getElementById('mob').classList.remove('open')">Interculturalidad</a>
+      <a href="/nosotras/cohousing" onclick="document.getElementById('mob').classList.remove('open')">Cuidado y Cohousing</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Proyectos <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/proyectos" onclick="document.getElementById('mob').classList.remove('open')">Proyectos</a>
+      <a href="/proyectos/vivienda" onclick="document.getElementById('mob').classList.remove('open')">Barrio Amapolas</a>
+      <a href="/proyectos/productivos" onclick="document.getElementById('mob').classList.remove('open')">Proyectos agroecológicos</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Acciones y Prensa <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/prensa#eventos" onclick="document.getElementById('mob').classList.remove('open')">Eventos / Capacitaciones</a>
+      <a href="/prensa" onclick="document.getElementById('mob').classList.remove('open')">Prensa</a>
+      <a href="/prensa#kit" onclick="document.getElementById('mob').classList.remove('open')">Kit de Prensa</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Comunidad <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/comunidad#aliados" onclick="document.getElementById('mob').classList.remove('open')">Aliados</a>
+      <a href="/comunidad#fundaciones" onclick="document.getElementById('mob').classList.remove('open')">Fundaciones y Org.</a>
+      <a href="/comunidad#sponsors" onclick="document.getElementById('mob').classList.remove('open')">Sponsors</a>
+      <a href="/comunidad#donantes" onclick="document.getElementById('mob').classList.remove('open')">Donantes</a>
+    </div>
+  </div>
+  <div class="mob-lang">
+    <a href="?lang=es" class="lang-btn lang-active">ES</a>
+    <span class="lang-sep">/</span>
+    <a href="?lang=en" class="lang-btn">EN</a>
+  </div>
+  <a href="/#donar" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--rojo)">Donar ahora</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <img src="/proyectos/productivos_hero.jpg" alt="Proyectos agroecológicos de la Cooperativa Amapolas en territorio patagónico: apiario, plantas nativas y hongos silvestres" class="hero-bg-img">
+  <div class="hero-overlay-top"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-body">
+    <div class="hero-breadcrumb">
+      <a href="/">Inicio</a><span>/</span>
+      <a href="/proyectos">Proyectos</a><span>/</span>
+      <span style="color:rgba(255,255,255,.6)">Proyectos agroecológicos</span>
+    </div>
+    <h1 class="hero-title">Producción que<br>cuida el territorio</h1>
+    <p class="hero-subtitle">Tres proyectos de economía regenerativa en territorio de la Comunidad Mapuche Tambo Báez. Sin agroquímicos. Con soberanía alimentaria. Y con autonomía económica para las socias.</p>
+  </div>
+  <div class="proyecto-nav">
+    <a href="#apiario-colectivo">🍯 Apiario Colectivo</a>
+    <a href="#plantas-nativas">🌿 Plantas Nativas</a>
+    <a href="#hongos-silvestres">🍄 Hongos Silvestres</a>
+  </div>
+</div>
+
+<!-- ══════════════════════ APIARIO COLECTIVO ══ -->
+<div id="apiario-colectivo">
+  <div class="chapter verde reveal">
+    <div class="chapter-num">01</div>
+    <div class="chapter-text">
+      <p class="chapter-tag">Proyecto productivo · Economía regenerativa</p>
+      <h2 class="chapter-title">Apiario Colectivo</h2>
+    </div>
+  </div>
+
+  <div class="metricas">
+    <div class="metrica"><div class="metrica-num verde">5</div><div class="metrica-label">Colmenas activas</div></div>
+    <div class="metrica"><div class="metrica-num verde">23 kg</div><div class="metrica-label">Primera cosecha 2024</div></div>
+    <div class="metrica"><div class="metrica-num verde">Tambo Báez</div><div class="metrica-label">Comunidad Mapuche</div></div>
+    <div class="metrica"><div class="metrica-num verde">2024</div><div class="metrica-label">Año de inicio</div></div>
+  </div>
+
+  <div class="resumen">
+    <div class="resumen-inner">
+      <div>
+        <p class="section-eyebrow verde reveal">Narrativa de impacto</p>
+        <h2 class="section-title reveal">Miel patagónica que<br>financia autonomía</h2>
+        <div class="prose reveal">
+          <p>Veintitrés kilos de miel en la primera cosecha. Un número pequeño con un significado enorme: es el primer ingreso autónomo generado por la propia producción de las socias de Amapolas, sin depender de empleadores ni de subsidios.</p>
+          <p>El apiario funciona en el territorio de la <strong>Comunidad Mapuche Tambo Báez</strong>, en una alianza donde cada parte aporta: la comunidad, el espacio y el vínculo con el territorio; Amapolas, el trabajo, la formación y la gestión. Las abejas, mientras tanto, polinizan el bosque patagónico y fortalecen la biodiversidad nativa.</p>
+          <p>Cada tarro de miel Amapolas es producción sin agroquímicos, con manejo agroecológico y respeto de los ciclos naturales. Es <strong>economía regenerativa en práctica concreta</strong>.</p>
+        </div>
+        <div class="ods-highlight">
+          <div class="ods-item">
+            <p class="ods-num">ODS 12 — Producción y consumo responsables</p>
+            <p>Producción apícola <strong>sin agroquímicos</strong>, con manejo agroecológico y respeto de los ciclos del ecosistema andino-patagónico.</p>
+          </div>
+          <div class="ods-item">
+            <p class="ods-num">ODS 15 — Vida de ecosistemas terrestres</p>
+            <p>El apiario en territorio mapuche <strong>fortalece la polinización de especies nativas</strong> del bosque patagónico y protege la biodiversidad local.</p>
+          </div>
+        </div>
+      </div>
+      <div class="datos-clave reveal">
+        <div class="dato estado"><div class="dato-label">Estado</div><div class="dato-val">Activo — segunda temporada</div></div>
+        <div class="dato"><div class="dato-label">Especie</div><div class="dato-val">Apis mellifera — miel artesanal patagónica</div></div>
+        <div class="dato"><div class="dato-label">Territorio</div><div class="dato-val">Comunidad Mapuche Tambo Báez, Bariloche</div></div>
+        <div class="dato"><div class="dato-label">Financiamiento</div><div class="dato-val">Fondo Mujeres del Sur — 3 ciclos consecutivos</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objetivo financiero: Apiario -->
+  <div class="obj-proyecto reveal">
+    <div class="obj-proyecto-inner">
+      <div class="obj-proyecto-text">
+        <p class="eyebrow">Objetivo financiero · Apiario</p>
+        <h3>¿Qué financia tu donación a este proyecto?</h3>
+        <p>Ampliación de colmenas, equipamiento apícola y formación avanzada para segunda temporada.</p>
+      </div>
+      <div class="obj-proyecto-metas">
+        <div class="obj-meta-chip dest">
+          <span class="val">USD 2.500</span>
+          <span class="lbl">Meta del proyecto</span>
+        </div>
+        <div class="obj-meta-chip">
+          <span class="val">5 → 10</span>
+          <span class="lbl">Colmenas proyectadas</span>
+        </div>
+        <div class="obj-meta-chip">
+          <span class="val">2025–26</span>
+          <span class="lbl">Plazo</span>
+        </div>
+      </div>
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="btn-obj-sm">Donar a este proyecto →</a>
+    </div>
+  </div>
+
+  <div class="galeria">
+    <div class="galeria-header reveal"><h3>Imágenes del apiario</h3><span class="galeria-note">Click para ampliar</span></div>
+    <div class="galeria-grid reveal">
+      <div class="galeria-item" onclick="openLB('api',0)">
+        <img src="/proyectos/apicultura.jpg" alt="Colmenas del Apiario Colectivo de la Cooperativa Amapolas en territorio de la Comunidad Mapuche Tambo Báez, Bariloche">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Apiario Colectivo</span>
+      </div>
+      <div class="galeria-item" onclick="openLB('api',1)">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Colmenas en el bosque</span>
+      </div>
+      <div class="galeria-item" onclick="openLB('api',2)">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Trabajo con colmenas</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="objetivos">
+    <div class="objetivos-inner">
+      <p class="section-eyebrow verde reveal">Para qué lo hacemos</p>
+      <h3 class="section-title reveal">Más que producir miel</h3>
+      <div class="objetivos-grid reveal">
+        <div class="objetivo"><div class="objetivo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 7 10 5 6c4 0 7 2 7 6z"/><path d="M12 12c0 0 5-2 7-6-4 0-7 2-7 6z"/></svg></div><h4>Biodiversidad</h4><p>Las abejas son indicadoras de ambientes saludables y contribuyen a la polinización de especies nativas del bosque patagónico.</p></div>
+        <div class="objetivo"><div class="objetivo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h4>Comunidad y territorio</h4><p>Fortalecemos lazos con la Comunidad Mapuche Tambo Báez a través del trabajo colectivo en el territorio.</p></div>
+        <div class="objetivo"><div class="objetivo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h4>Autonomía económica</h4><p>El primer ingreso productivo propio: 23 kg de miel en 2024. Una fuente de ingresos sustentable para las socias.</p></div>
+        <div class="objetivo"><div class="objetivo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div><h4>Educación ambiental</h4><p>Aprender a interpretar el clima y revalorizar el vínculo entre las personas y la naturaleza patagónica.</p></div>
+        <div class="objetivo"><div class="objetivo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h4>Medicina ancestral</h4><p>Recuperación parcial de saberes de medicina ancestral de los pueblos del territorio en torno a las plantas y la miel.</p></div>
+        <div class="objetivo"><div class="objetivo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--verde)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4>Integración agroecológica</h4><p>El apiario poliniza el vivero de plantas nativas. Los tres proyectos se potencian mutuamente como un ecosistema productivo.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="estado">
+    <div class="estado-inner">
+      <div><p class="section-eyebrow reveal">Dónde estamos</p><h3 class="section-title reveal">Estado actual</h3></div>
+      <div class="timeline reveal">
+        <div class="timeline-item"><div class="timeline-dot done"></div><div class="timeline-content"><h5>Formación en apicultura</h5><p>Capacitación de las integrantes en manejo de colmenas y prácticas agroecológicas.</p><span class="timeline-year">2024</span></div></div>
+        <div class="timeline-item"><div class="timeline-dot done"></div><div class="timeline-content"><h5>Instalación de 5 colmenas</h5><p>Adquisición y mantenimiento en el territorio de la Comunidad Mapuche Tambo Báez.</p><span class="timeline-year">2024</span></div></div>
+        <div class="timeline-item"><div class="timeline-dot done"></div><div class="timeline-content"><h5>Primera cosecha: 23 kg</h5><p>Primer ingreso productivo propio de la cooperativa. Inicio de comercialización local de miel artesanal patagónica.</p><span class="timeline-year">2024</span></div></div>
+        <div class="timeline-item"><div class="timeline-dot active"></div><div class="timeline-content"><h5>Segunda temporada activa</h5><p>Mantenimiento activo, preparación para segunda cosecha y evaluación de ampliación a 10 colmenas.</p><span class="timeline-year">2025 — en curso</span></div></div>
+        <div class="timeline-item"><div class="timeline-dot pending"></div><div class="timeline-content"><h5>Comercialización regional</h5><p>Ampliar la distribución de la miel Amapolas a mercados locales y regionales.</p><span class="timeline-year">A definir</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="proyecto-sep"></div>
+
+<!-- ══════════════════════ PLANTAS NATIVAS ══ -->
+<div id="plantas-nativas">
+  <div class="chapter rojo reveal">
+    <div class="chapter-num">02</div>
+    <div class="chapter-text">
+      <p class="chapter-tag">Proyecto productivo · Soberanía alimentaria</p>
+      <h2 class="chapter-title">Plantas Nativas</h2>
+    </div>
+  </div>
+
+  <div class="resumen">
+    <div class="resumen-inner">
+      <div>
+        <p class="section-eyebrow reveal">Narrativa de impacto</p>
+        <h2 class="section-title reveal">Raíces patagónicas,<br>soberanía alimentaria</h2>
+        <div class="prose reveal">
+          <p>El proyecto de plantas nativas no es solo un vivero: es una declaración de soberanía sobre el territorio. Trabajar con especies nativas patagónicas significa recuperar la relación de las personas con el ecosistema que habitan, sin depender de semillas comerciales ni de cadenas externas de distribución.</p>
+          <p>La formación de las integrantes incluye <strong>tipos de compostaje</strong>, reproducción de plantas por esquejes y reconocimiento de las distintas especies acordes a los distintos territorios. El proyecto articula directamente con el apiario —cuyas abejas polinizan los plantines— y con el proyecto de hongos, generando un ecosistema productivo integrado.</p>
+          <p>Cada planta reproducida es un paso hacia la <strong>autonomía económica y alimentaria</strong> de la cooperativa y del territorio que habita.</p>
+        </div>
+        <div class="ods-highlight">
+          <div class="ods-item">
+            <p class="ods-num">ODS 15 — Vida de ecosistemas terrestres</p>
+            <p>La <strong>reproducción de especies nativas patagónicas</strong> protege activamente la biodiversidad del ecosistema andino y reduce la dependencia de especies exóticas.</p>
+          </div>
+          <div class="ods-item rojo-border">
+            <p class="ods-num" style="color:var(--rojo)">ODS 12 — Producción responsable</p>
+            <p>Técnicas de reproducción vegetativa sin agroquímicos. <strong>Compostaje como práctica de economía circular</strong> y reducción de residuos orgánicos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="datos-clave reveal">
+        <div class="dato estado"><div class="dato-label">Estado</div><div class="dato-val">Activo — en desarrollo</div></div>
+        <div class="dato"><div class="dato-label">Período</div><div class="dato-val">2024 — 2026</div></div>
+        <div class="dato"><div class="dato-label">Financiamiento</div><div class="dato-val">Fondo Mujeres del Sur — 2° y 3° ciclo</div></div>
+        <div class="dato"><div class="dato-label">Técnica principal</div><div class="dato-val">Reproducción por esquejes · Compostaje · Semillero nativo</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objetivo financiero: Plantas Nativas -->
+  <div class="obj-proyecto reveal">
+    <div class="obj-proyecto-inner">
+      <div class="obj-proyecto-text">
+        <p class="eyebrow">Objetivo financiero · Plantas Nativas</p>
+        <h3>¿Qué financia tu donación a este proyecto?</h3>
+        <p>Infraestructura de vivero, herramientas de reproducción vegetal e insumos para compostaje.</p>
+      </div>
+      <div class="obj-proyecto-metas">
+        <div class="obj-meta-chip dest">
+          <span class="val">USD 1.500</span>
+          <span class="lbl">Meta del proyecto</span>
+        </div>
+        <div class="obj-meta-chip">
+          <span class="val">Nativas</span>
+          <span class="lbl">Solo especies patagónicas</span>
+        </div>
+        <div class="obj-meta-chip">
+          <span class="val">2025–26</span>
+          <span class="lbl">Plazo</span>
+        </div>
+      </div>
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="btn-obj-sm">Donar a este proyecto →</a>
+    </div>
+  </div>
+
+  <div class="galeria" style="background:white">
+    <div class="galeria-header reveal"><h3>Imágenes del proyecto</h3><span class="galeria-note">Click para ampliar</span></div>
+    <div class="galeria-grid reveal">
+      <div class="galeria-item" onclick="openLB('plantas',0)">
+        <img src="/proyectos/plantas.jpg" alt="Vivero de plantas nativas patagónicas de la Cooperativa Amapolas: reproducción por esquejes en Bariloche">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Plantas nativas</span>
+      </div>
+      <div class="galeria-item" onclick="openLB('plantas',1)">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Reproducción por esquejes</span>
+      </div>
+      <div class="galeria-item" onclick="openLB('plantas',2)">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Taller de compostaje</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="objetivos" style="background:var(--crema)">
+    <div class="objetivos-inner">
+      <p class="section-eyebrow reveal">Lo que logramos</p>
+      <h3 class="section-title reveal">Primeros resultados</h3>
+      <div class="objetivos-grid reveal">
+        <div class="objetivo"><h4>Formación inicial</h4><p>Capacitación en tipos de plantas acordes a los distintos territorios patagónicos y sus características ecológicas.</p></div>
+        <div class="objetivo"><h4>Técnicas de compostaje</h4><p>Formación en distintos tipos de compostaje como práctica de soberanía alimentaria y reducción de residuos orgánicos.</p></div>
+        <div class="objetivo"><h4>Reproducción por esquejes</h4><p>Primeras reproducciones exitosas de especies nativas patagónicas sin depender de semillas comerciales.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="objetivos" style="background:white">
+    <div class="objetivos-inner">
+      <p class="section-eyebrow reveal">Con quiénes trabajamos</p>
+      <h3 class="section-title reveal">Organizaciones aliadas</h3>
+      <div class="alianzas-grid reveal">
+        <div class="alianza-card"><div class="alianza-nombre">Vivero de Plantas Nativas — Parques Nacionales</div><div class="alianza-desc">Vínculo técnico para el trabajo con especies nativas patagónicas y buenas prácticas de reproducción vegetal.</div></div>
+        <div class="alianza-card"><div class="alianza-nombre">Circuito Verde Bariloche</div><div class="alianza-desc">Organización local que trabaja en la promoción de prácticas sustentables y economía circular en la ciudad.</div></div>
+        <div class="alianza-card"><div class="alianza-nombre">Jóvenes por Bariloche</div><div class="alianza-desc">Organización juvenil local con trabajo en territorio y cuidado ambiental con quienes construimos vínculo activo.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="estado" style="background:var(--azul)">
+    <div class="estado-inner">
+      <div>
+        <p class="section-eyebrow" style="color:rgba(255,255,255,.35)">Dónde estamos</p>
+        <h3 class="section-title" style="color:white">Estado actual</h3>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item" style="border-color:rgba(255,255,255,.06)"><div class="timeline-dot done"></div><div class="timeline-content"><h5 style="color:white">Formación en plantas nativas</h5><p style="color:rgba(255,255,255,.42)">Capacitación en tipos de plantas, territorios y técnicas de reproducción vegetativa.</p><span class="timeline-year" style="color:rgba(255,255,255,.2)">2024</span></div></div>
+        <div class="timeline-item" style="border-color:rgba(255,255,255,.06)"><div class="timeline-dot done"></div><div class="timeline-content"><h5 style="color:white">Formación en compostaje</h5><p style="color:rgba(255,255,255,.42)">Aprendizaje de distintos métodos de compostaje y su aplicación en producción agroecológica.</p><span class="timeline-year" style="color:rgba(255,255,255,.2)">2024</span></div></div>
+        <div class="timeline-item" style="border-color:rgba(255,255,255,.06)"><div class="timeline-dot done"></div><div class="timeline-content"><h5 style="color:white">Reproducción por esquejes</h5><p style="color:rgba(255,255,255,.42)">Primeras reproducciones exitosas de especies nativas patagónicas.</p><span class="timeline-year" style="color:rgba(255,255,255,.2)">2024 — 2025</span></div></div>
+        <div class="timeline-item" style="border-color:rgba(255,255,255,.06)"><div class="timeline-dot active"></div><div class="timeline-content"><h5 style="color:white">Expansión y consolidación</h5><p style="color:rgba(255,255,255,.42)">Consolidación en el marco del tercer Fondo Mujeres del Sur. Ampliación de variedades y vínculos.</p><span class="timeline-year" style="color:rgba(255,255,255,.2)">2025 — en curso</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="proyecto-sep"></div>
+
+<!-- ══════════════════════ HONGOS SILVESTRES ══ -->
+<div id="hongos-silvestres">
+  <div class="chapter dark reveal">
+    <div class="chapter-num">03</div>
+    <div class="chapter-text">
+      <p class="chapter-tag">Proyecto productivo · Economía regenerativa · Potencial de escala</p>
+      <h2 class="chapter-title">Hongos Silvestres</h2>
+    </div>
+  </div>
+
+  <div class="metricas">
+    <div class="metrica"><div class="metrica-num azul">2024</div><div class="metrica-label">Año de inicio</div></div>
+    <div class="metrica"><div class="metrica-num azul">Tambo Báez</div><div class="metrica-label">Comunidad Mapuche</div></div>
+    <div class="metrica"><div class="metrica-num azul">Gírgolas</div><div class="metrica-label">Especie cultivada</div></div>
+    <div class="metrica"><div class="metrica-num azul">2ª etapa</div><div class="metrica-label">Inoculación en curso</div></div>
+  </div>
+
+  <div class="resumen">
+    <div class="resumen-inner">
+      <div>
+        <p class="section-eyebrow reveal">Narrativa de impacto</p>
+        <h2 class="section-title reveal">Del bosque a la mesa,<br>con manos colectivas</h2>
+        <div class="prose reveal">
+          <p>El cultivo de gírgolas en territorio de la Comunidad Mapuche Tambo Báez es el proyecto con mayor potencial de escala de la cooperativa. Las gírgolas fueron elegidas por su <strong>adaptabilidad al clima patagónico</strong>, su alto valor nutricional y su creciente demanda en mercados de economía consciente y gastronomía sustentable.</p>
+          <p>El proyecto cuenta con el acompañamiento técnico del <strong>CIEFAP</strong> (Centro de Investigación y Extensión Forestal Andino Patagónico), lo que le da rigor científico y diferencia a Amapolas de los emprendimientos sin respaldo institucional.</p>
+          <p>Las primeras cosechas fueron pequeñas — las socias son honestas al respecto — y están trabajando en la segunda etapa de inoculación para mejorar los resultados. La transparencia sobre las dificultades es parte de la cultura organizacional de la cooperativa.</p>
+        </div>
+        <div class="ods-highlight">
+          <div class="ods-item">
+            <p class="ods-num">ODS 12 — Producción y consumo responsables</p>
+            <p>Cultivo sin agroquímicos con <strong>acompañamiento técnico de CIEFAP</strong>. Economía regenerativa integrada al ecosistema del bosque andino.</p>
+          </div>
+          <div class="ods-item">
+            <p class="ods-num">ODS 10 — Reducción de desigualdades</p>
+            <p>Generación de <strong>ingresos para mujeres en situación de vulnerabilidad económica</strong>, en alianza con una comunidad mapuche del territorio.</p>
+          </div>
+        </div>
+      </div>
+      <div class="datos-clave reveal">
+        <div class="dato estado"><div class="dato-label">Estado</div><div class="dato-val">Activo — 2ª etapa</div></div>
+        <div class="dato atencion"><div class="dato-label">Nota sobre cosechas</div><div class="dato-val">Las cosechas iniciales fueron pequeñas. Se está analizando y mejorando en 2ª inoculación.</div></div>
+        <div class="dato"><div class="dato-label">Especie</div><div class="dato-val">Gírgolas (Pleurotus ostreatus)</div></div>
+        <div class="dato"><div class="dato-label">Infraestructura</div><div class="dato-val">Cobertizo + riego automático instalado</div></div>
+        <div class="dato"><div class="dato-label">Apoyo técnico</div><div class="dato-val">CIEFAP · Parques y Jardines Municipio Bariloche</div></div>
+        <div class="dato"><div class="dato-label">Financiamiento</div><div class="dato-val">Fondo Mujeres del Sur — 2° y 3° ciclo</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objetivo financiero: Hongos -->
+  <div class="obj-proyecto reveal">
+    <div class="obj-proyecto-inner">
+      <div class="obj-proyecto-text">
+        <p class="eyebrow">Objetivo financiero · Hongos Silvestres</p>
+        <h3>¿Qué financia tu donación a este proyecto?</h3>
+        <p>Materiales para segunda inoculación, mejoras al cobertizo e insumos para escalado de producción.</p>
+      </div>
+      <div class="obj-proyecto-metas">
+        <div class="obj-meta-chip dest">
+          <span class="val">USD 2.000</span>
+          <span class="lbl">Meta del proyecto</span>
+        </div>
+        <div class="obj-meta-chip">
+          <span class="val">CIEFAP</span>
+          <span class="lbl">Aval técnico científico</span>
+        </div>
+        <div class="obj-meta-chip">
+          <span class="val">Escalable</span>
+          <span class="lbl">Potencial regional</span>
+        </div>
+      </div>
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="btn-obj-sm">Donar a este proyecto →</a>
+    </div>
+  </div>
+
+  <div class="galeria">
+    <div class="galeria-header reveal"><h3>Imágenes del cultivo</h3><span class="galeria-note">Click para ampliar</span></div>
+    <div class="galeria-grid reveal">
+      <div class="galeria-item" onclick="openLB('hongos',0)">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Cobertizo en Tambo Báez</span>
+      </div>
+      <div class="galeria-item" onclick="openLB('hongos',1)">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Cultivo de gírgolas</span>
+      </div>
+      <div class="galeria-item" onclick="openLB('hongos',2)">
+        <div class="galeria-item-overlay"><span class="galeria-zoom">Ampliar</span></div>
+        <span class="galeria-placeholder-text">Proceso de inoculación</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Economía regenerativa — módulo especial para hongos -->
+  <div class="hongos-regen">
+    <div class="hongos-regen-inner">
+      <div class="reveal">
+        <p class="section-eyebrow">Por qué importa más allá de Amapolas</p>
+        <h3 class="section-title">Un modelo de economía<br>regenerativa con escala</h3>
+        <p style="font-size:.95rem;line-height:1.78;color:rgba(36,37,46,.6);margin-top:.8rem">El proyecto de hongos silvestres tiene potencial para funcionar como campaña satélite orientada a donantes con perfil de economía regenerativa y sustentabilidad. Su impacto va más allá de la cooperativa.</p>
+      </div>
+      <div class="regen-puntos reveal">
+        <div class="regen-punto">
+          <span class="regen-punto-num">01</span>
+          <div class="regen-punto-text"><h5>Ciclo cerrado sin residuos</h5><p>Los sustratos usados se convierten en compost para el vivero de plantas nativas. Economía circular en práctica.</p></div>
+        </div>
+        <div class="regen-punto">
+          <span class="regen-punto-num">02</span>
+          <div class="regen-punto-text"><h5>Aval técnico científico</h5><p>El respaldo de CIEFAP diferencia este proyecto de emprendimientos artesanales sin base científica, y lo hace replicable con garantías.</p></div>
+        </div>
+        <div class="regen-punto">
+          <span class="regen-punto-num">03</span>
+          <div class="regen-punto-text"><h5>Alianza intercultural real</h5><p>El cobertizo está en territorio mapuche por decisión política, no por conveniencia logística. Es el modelo de alianza que Amapolas defiende.</p></div>
+        </div>
+        <div class="regen-punto">
+          <span class="regen-punto-num">04</span>
+          <div class="regen-punto-text"><h5>Potencial de escala regional</h5><p>Las gírgolas tienen alta demanda en mercados de gastronomía consciente en la Patagonia. Un modelo exitoso puede replicarse en otras comunidades de la región.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="objetivos" style="background:white">
+    <div class="objetivos-inner">
+      <p class="section-eyebrow reveal">Cómo lo hacemos</p>
+      <h3 class="section-title reveal">El proceso de cultivo</h3>
+      <div class="proceso-grid reveal">
+        <div class="paso"><p class="paso-num">Etapa 01</p><h4>Preparación del sustrato</h4><p>Preparación de troncos y sustratos aptos para la inoculación de micelio de gírgolas según las características del bosque andino.</p></div>
+        <div class="paso"><p class="paso-num">Etapa 02</p><h4>Inoculación</h4><p>Siembra del micelio en los sustratos. El cobertizo cuenta con sistema de riego automático para mantener condiciones óptimas de humedad.</p></div>
+        <div class="paso"><p class="paso-num">Etapa 03</p><h4>Cosecha y mejoras</h4><p>Las cosechas iniciales fueron pequeñas. La segunda inoculación de troncos está en curso con ajustes técnicos apoyados por CIEFAP.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="territorio-dark">
+    <div class="territorio-dark-inner">
+      <div>
+        <p class="section-eyebrow reveal">Territorio e interculturalidad</p>
+        <h3 class="section-title reveal">Un proyecto arraigado<br>en Tambo Báez</h3>
+        <p class="territorio-desc reveal">El cobertizo donde se desarrolla el cultivo fue construido en el territorio de la Comunidad Mapuche Tambo Báez, fortaleciendo el vínculo intercultural entre la cooperativa y la comunidad. No es una decisión logística: es política.</p>
+      </div>
+      <div class="territorio-cards reveal">
+        <div class="territorio-card"><h4>Comunidad Mapuche Tambo Báez</h4><p>A través de su referente Mirta, la comunidad cedió el espacio para el cobertizo. El proyecto también alberga el apiario colectivo.</p></div>
+        <div class="territorio-card"><h4>CIEFAP</h4><p>Centro de Investigación y Extensión Forestal Andino Patagónico. Acompañamiento técnico para el cultivo de gírgolas en el ecosistema patagónico.</p></div>
+        <div class="territorio-card"><h4>Dirección de Parques y Jardines — Municipio Bariloche</h4><p>Apoyo técnico municipal para el desarrollo del proyecto y la capacitación de las integrantes.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="estado">
+    <div class="estado-inner">
+      <div><p class="section-eyebrow reveal">Dónde estamos</p><h3 class="section-title reveal">Estado actual</h3></div>
+      <div class="timeline reveal">
+        <div class="timeline-item"><div class="timeline-dot done"></div><div class="timeline-content"><h5>Construcción del cobertizo</h5><p>Construcción de un espacio apto para el cultivo en el territorio de Tambo Báez.</p><span class="timeline-year">2024</span></div></div>
+        <div class="timeline-item"><div class="timeline-dot done"></div><div class="timeline-content"><h5>Sistema de riego automático</h5><p>Instalación de infraestructura para mantener condiciones óptimas de humedad.</p><span class="timeline-year">2024</span></div></div>
+        <div class="timeline-item"><div class="timeline-dot done"></div><div class="timeline-content"><h5>Primera inoculación y cosechas iniciales</h5><p>Primera etapa realizada. Cosechas pequeñas — se está analizando la situación y posibles mejoras.</p><span class="timeline-year">2024 — 2025</span></div></div>
+        <div class="timeline-item"><div class="timeline-dot active"></div><div class="timeline-content"><h5>Segunda etapa de inoculación</h5><p>En curso con incorporación de nuevos sustratos y ajuste de condiciones en base a la primera etapa.</p><span class="timeline-year">2025 — en curso</span></div></div>
+        <div class="timeline-item"><div class="timeline-dot pending"></div><div class="timeline-content"><h5>Escalado de la producción</h5><p>Una vez consolidadas las mejoras, ampliar la producción y explorar canales de comercialización regional.</p><span class="timeline-year">A definir</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA — verde para agroecológico -->
+<div class="donar-cta">
+  <div class="donar-cta-text reveal">
+    <p class="eyebrow">Apoyá los proyectos</p>
+    <h2>Tres proyectos,<br>una misma raíz</h2>
+    <p>Tu donación financia insumos, formación y el trabajo de mujeres que producen, cuidan el territorio y construyen autonomía económica en la Patagonia. Cooperativa con personería jurídica INAES N°63884.</p>
+  </div>
+  <div class="donar-cta-actions reveal">
+    <a href="/#donar" class="btn-primary">Donar ahora →</a>
+    <a href="/proyectos" class="btn-outline-white">Ver todos los proyectos</a>
+    <p class="donar-note">Donaciones trazables · INAES N°63884</p>
+  </div>
+</div>
+
+<!-- LIGHTBOXES -->
+<div class="lightbox" id="lb-api"><button class="lightbox-close" onclick="closeLB('api')">✕</button><button class="lightbox-nav lightbox-prev" onclick="navLB('api',-1)">‹</button><img class="lightbox-img" id="lb-api-img" src="" alt=""><button class="lightbox-nav lightbox-next" onclick="navLB('api',1)">›</button><span class="lightbox-caption" id="lb-api-cap"></span></div>
+<div class="lightbox" id="lb-plantas"><button class="lightbox-close" onclick="closeLB('plantas')">✕</button><button class="lightbox-nav lightbox-prev" onclick="navLB('plantas',-1)">‹</button><img class="lightbox-img" id="lb-plantas-img" src="" alt=""><button class="lightbox-nav lightbox-next" onclick="navLB('plantas',1)">›</button><span class="lightbox-caption" id="lb-plantas-cap"></span></div>
+<div class="lightbox" id="lb-hongos"><button class="lightbox-close" onclick="closeLB('hongos')">✕</button><button class="lightbox-nav lightbox-prev" onclick="navLB('hongos',-1)">‹</button><img class="lightbox-img" id="lb-hongos-img" src="" alt=""><button class="lightbox-nav lightbox-next" onclick="navLB('hongos',1)">›</button><span class="lightbox-caption" id="lb-hongos-cap"></span></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/logo_amapolas.png" alt="Amapolas Cooperativa de Viviendas" class="foot-logo">
+      <p class="foot-desc">Una cooperativa de viviendas conducida por mujeres y disidencias en la Patagonia argentina. Construimos autonomía y comunidad desde Bariloche.</p>
+    </div>
+    <div class="foot-col"><h5>La cooperativa</h5><ul><li><a href="/nosotras">Quiénes somos</a></li><li><a href="/proyectos">Proyectos</a></li><li><a href="/comunidad">Comunidad</a></li><li><a href="/prensa">Prensa</a></li></ul></div>
+    <div class="foot-col"><h5>Colaborar</h5><ul><li><a href="/#donar">Donar</a></li><li><a href="/comunidad#voluntariado">Voluntariado</a></li><li><a href="/comunidad#fundaciones">Alianzas</a></li><li><a href="/prensa#kit">Kit de Prensa</a></li></ul></div>
+    <div class="foot-col"><h5>Contacto</h5><ul><li><a href="mailto:contacto@amapolas.coop">contacto@amapolas.coop</a></li><li><a href="mailto:prensa@amapolas.coop">prensa@amapolas.coop</a></li><li><a href="#">Bariloche, Río Negro</a></li><li><a href="#" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Amapolas Cooperativa de Viviendas Ltda. · INAES N°63884 · Bariloche, Río Negro</p>
+    <div class="foot-social">
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="#" aria-label="Facebook">fb</a>
+      <a href="#" aria-label="WhatsApp">wa</a>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="stop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<script>
+const navbar = document.getElementById('navbar');
+function updateNav() {
+  const past = window.scrollY > 40;
+  navbar.classList.toggle('over-bg', !past);
+  navbar.classList.toggle('solid', past);
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+window.addEventListener('scroll', () => {
+  document.getElementById('stop').classList.toggle('on', window.scrollY > 500);
+}, {passive:true});
+document.getElementById('ham').addEventListener('click', () =>
+  document.getElementById('mob').classList.add('open')
+);
+function toggleMobAcc(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+const io = new IntersectionObserver(
+  entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+  {threshold:.06}
+);
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const lbData = {
+  api:    [{src:'/proyectos/apicultura.jpg', cap:'Apiario Colectivo — Tambo Báez'}, {src:'', cap:'Colmenas en el bosque'}, {src:'', cap:'Trabajo con las colmenas'}],
+  plantas:[{src:'/proyectos/plantas.jpg',   cap:'Plantas nativas patagónicas'},      {src:'', cap:'Reproducción por esquejes'}, {src:'', cap:'Taller de compostaje'}],
+  hongos: [{src:'', cap:'Cobertizo en Tambo Báez'}, {src:'', cap:'Cultivo de gírgolas'}, {src:'', cap:'Proceso de inoculación'}]
+};
+const lbIdx = {api:0, plantas:0, hongos:0};
+function openLB(k, i) {
+  if (!lbData[k][i].src) return;
+  lbIdx[k] = i;
+  document.getElementById('lb-'+k+'-img').src = lbData[k][i].src;
+  document.getElementById('lb-'+k+'-cap').textContent = lbData[k][i].cap;
+  document.getElementById('lb-'+k).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB(k) {
+  document.getElementById('lb-'+k).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function navLB(k, d) {
+  const n = lbData[k];
+  lbIdx[k] = (lbIdx[k] + d + n.length) % n.length;
+  openLB(k, lbIdx[k]);
+}
+document.querySelectorAll('.lightbox').forEach(lb => {
+  lb.addEventListener('click', function(e) {
+    if (e.target === this) closeLB(this.id.replace('lb-', ''));
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.lightbox.open').forEach(lb => lb.classList.remove('open'));
+});
+</script>
+</body>
+</html>
