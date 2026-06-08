@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuidado y Cohousing — Amapolas Cooperativa de Viviendas · Bariloche</title>
+<meta name="description" content="El modelo de cohousing feminista de la Cooperativa Amapolas: cuidado colectivo como infraestructura diseñada. Vivienda comunitaria con perspectiva de género en Bariloche, Patagonia.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#24252e;--rojo:#ed694b;--verde:#376135;--crema:#eae9e2;--font:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--crema);color:var(--azul);overflow-x:hidden}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%}ul{list-style:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;transition:background .4s,box-shadow .4s,padding .3s}
+nav.solid{background:var(--crema);box-shadow:0 1px 0 rgba(36,37,46,.1);padding:1rem 4rem}
+nav.over-bg .nav-logo-color{display:none}nav.over-bg .nav-logo-neg{display:block}
+nav.solid .nav-logo-color{display:block}nav.solid .nav-logo-neg{display:none}
+.nav-logo-color,.nav-logo-neg{height:36px;display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:.875rem;font-weight:600;letter-spacing:.03em;opacity:.75;transition:opacity .2s,color .4s}
+nav.over-bg .nav-links a{color:white}nav.solid .nav-links a{color:var(--azul)}.nav-links a:hover{opacity:1}
+nav.solid .nav-links a.active{opacity:1;border-bottom:2px solid var(--rojo);padding-bottom:2px}
+.nav-links .cta{opacity:1!important;padding:.6rem 1.5rem;border-radius:2px;transition:background .2s,color .2s;border:none!important}
+nav.over-bg .nav-links .cta{background:white;color:var(--rojo)!important}nav.over-bg .nav-links .cta:hover{background:var(--crema)}
+nav.solid .nav-links .cta{background:var(--rojo);color:#fff!important}nav.solid .nav-links .cta:hover{background:#d4533a}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;transition:background .4s}
+nav.over-bg .hamburger span{background:white}nav.solid .hamburger span{background:var(--azul)}
+.mobile-overlay{display:none;position:fixed;inset:0;z-index:98;background:var(--azul);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;overflow-y:auto;padding:4rem 2rem}
+.mobile-overlay.open{display:flex}.mobile-overlay a{font-size:1.8rem;font-weight:800;color:white;letter-spacing:-.02em;transition:color .2s}.mobile-overlay a:hover{color:var(--rojo)}
+.mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;font-size:1.8rem;cursor:pointer;color:white}
+.mob-accordion{display:flex;flex-direction:column;align-items:center;gap:.5rem}.mob-acc-btn{background:none;border:none;cursor:pointer;font-family:var(--font);font-size:1.8rem;font-weight:800;color:white;letter-spacing:-.02em;display:flex;align-items:center;gap:.5rem;transition:color .2s}.mob-acc-btn:hover{color:var(--rojo)}.mob-acc-arrow{font-size:1rem;transition:transform .25s;display:inline-block}.mob-acc-btn.open .mob-acc-arrow{transform:rotate(180deg)}.mob-acc-panel{display:none;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem 0}.mob-acc-panel.open{display:flex}.mob-acc-panel a{font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:-.01em;transition:color .2s}.mob-acc-panel a:hover{color:white}
+.nav-item{position:relative}.nav-dropdown{display:none;position:absolute;top:100%;padding-top:.8rem;left:50%;transform:translateX(-50%);background:white;border-radius:3px;box-shadow:0 8px 32px rgba(36,37,46,.14);min-width:220px;overflow:hidden;z-index:200}.nav-item:hover .nav-dropdown{display:block}.nav-dropdown a{display:flex;align-items:center;gap:.8rem;padding:.85rem 1.2rem;font-size:.82rem;font-weight:600;color:var(--azul)!important;opacity:1!important;border-bottom:1px solid rgba(36,37,46,.06);transition:background .15s}.nav-dropdown a:last-child{border-bottom:none}.nav-dropdown a:hover{background:var(--crema)}.nav-dropdown-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.7rem 1.2rem .3rem;color:rgba(36,37,46,.3);display:block}.has-dropdown>a::after{content:'▾';font-size:.65rem;margin-left:.3rem;opacity:.5;vertical-align:middle}
+.nav-lang{display:flex;align-items:center;gap:.2rem}.lang-btn{font-size:.72rem!important;font-weight:700;letter-spacing:.1em;opacity:.38!important;transition:opacity .2s}.lang-btn:hover,.lang-btn.lang-active{opacity:1!important}.lang-sep{font-size:.65rem;opacity:.2}nav.over-bg .lang-btn{color:white}nav.solid .lang-btn{color:var(--azul)}.mob-lang{display:flex;align-items:center;gap:.4rem}.mob-lang .lang-btn{font-size:1rem!important;font-weight:700;color:rgba(255,255,255,.4)}.mob-lang .lang-btn.lang-active{color:white;opacity:1!important}.mob-lang .lang-sep{color:rgba(255,255,255,.2);font-size:.9rem}
+
+/* HERO */
+.hero{background:var(--azul);min-height:72vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(237,105,75,.1) 0%,transparent 60%);pointer-events:none}
+.hero-deco{position:absolute;right:0;bottom:-4rem;font-size:clamp(16rem,24vw,32rem);font-weight:800;line-height:1;color:rgba(255,255,255,.025);user-select:none;pointer-events:none;letter-spacing:-.06em}
+.hero-body{position:relative;z-index:2;padding:130px 4rem 5rem;max-width:820px}
+.hero-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:2rem}
+.hero-breadcrumb a{color:rgba(255,255,255,.35);transition:color .2s}.hero-breadcrumb a:hover{color:white}.hero-breadcrumb span{color:rgba(255,255,255,.18)}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(237,105,75,.25);color:white;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1rem;border-radius:2px;margin-bottom:1.2rem;border:1px solid rgba(255,255,255,.15)}
+.hero-title{font-size:clamp(2.8rem,5vw,5.5rem);font-weight:800;line-height:.95;letter-spacing:-.04em;color:white;margin-bottom:1.5rem}
+.hero-subtitle{font-size:1rem;line-height:1.78;color:rgba(255,255,255,.55);max-width:560px}
+.hero-tabs{position:relative;z-index:2;display:flex;border-top:1px solid rgba(255,255,255,.08);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.hero-tabs::-webkit-scrollbar{display:none}
+.hero-tab{flex-shrink:0;padding:1.1rem 2.2rem;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);border-right:1px solid rgba(255,255,255,.08);transition:color .2s,background .2s;white-space:nowrap}
+.hero-tab:last-child{border-right:none}.hero-tab:hover{color:white;background:rgba(255,255,255,.05)}
+
+/* BLOQUES */
+.eje-bloque{padding:6rem 4rem;border-bottom:1px solid rgba(36,37,46,.07)}
+.eje-bloque:last-child{border-bottom:none}
+.eje-bloque.bg-white{background:white}.eje-bloque.bg-crema{background:var(--crema)}.eje-bloque.bg-azul{background:var(--azul)}
+.eje-two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto}
+.eje-two-col.reverse{direction:rtl}.eje-two-col.reverse>*{direction:ltr}
+.eje-photo{border-radius:3px;overflow:hidden;aspect-ratio:4/3;position:relative;background:rgba(36,37,46,.08)}
+.eje-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.eje-photo-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem}
+.eje-photo-placeholder span{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(36,37,46,.2)}
+.section-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rojo);margin-bottom:1rem}
+.section-title{font-size:clamp(1.8rem,2.6vw,2.5rem);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-bottom:1.5rem}
+.prose p{font-size:1rem;line-height:1.88;color:rgba(36,37,46,.62);margin-bottom:1.3rem}.prose p:last-child{margin-bottom:0}.prose p strong{color:var(--azul);font-weight:700}
+
+/* DEFINICIÓN COHOUSING */
+.cohousing-def{margin-top:2rem;padding:1.5rem 1.8rem;background:rgba(237,105,75,.07);border-left:3px solid var(--rojo);border-radius:0 3px 3px 0}
+.cohousing-def p{font-size:.9rem;line-height:1.72;color:rgba(36,37,46,.65)}
+.cohousing-def strong{color:var(--azul);font-weight:700}
+
+/* ODS HIGHLIGHT */
+.ods-highlight{margin-top:1.8rem;display:flex;flex-direction:column;gap:.7rem}
+.ods-item{padding:1.1rem 1.3rem;background:rgba(237,105,75,.07);border-left:3px solid var(--rojo);border-radius:0 3px 3px 0}
+.ods-item .ods-num{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rojo);margin-bottom:.3rem}
+.ods-item p{font-size:.83rem;line-height:1.65;color:rgba(36,37,46,.65)}
+.ods-item strong{color:var(--azul);font-weight:700}
+
+/* FEATURES COHOUSING */
+.cohousing-features-section{background:white;padding:6rem 4rem}
+.cf-inner{max-width:1200px;margin:0 auto}
+.cf-head{margin-bottom:3.5rem}
+.cf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.cf-card{background:var(--crema);border-radius:3px;padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:box-shadow .2s,transform .2s}
+.cf-card:hover{box-shadow:0 6px 20px rgba(36,37,46,.07);transform:translateY(-2px)}
+.cf-icon{width:44px;height:44px;border-radius:50%;background:rgba(237,105,75,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cf-icon svg{width:20px;height:20px;color:var(--rojo)}
+.cf-tag{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(36,37,46,.32)}
+.cf-card h4{font-size:1rem;font-weight:800;letter-spacing:-.015em;line-height:1.15}
+.cf-card p{font-size:.87rem;line-height:1.72;color:rgba(36,37,46,.58)}
+
+/* CUIDADO COMO INFRAESTRUCTURA */
+.cuidado-section{background:var(--azul);padding:6rem 4rem}
+.cuidado-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.cuidado-text .section-eyebrow{color:rgba(255,255,255,.3)}
+.cuidado-text .section-title{color:white}
+.cuidado-text p{font-size:1rem;line-height:1.82;color:rgba(255,255,255,.5);margin-bottom:1.5rem}
+.cuidado-text p strong{color:rgba(255,255,255,.9)}
+.cuidado-list{display:flex;flex-direction:column;gap:.7rem}
+.cuidado-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.4rem;background:rgba(255,255,255,.05);border-radius:3px;border:1px solid rgba(255,255,255,.07)}
+.cuidado-item-num{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rojo);min-width:26px;padding-top:3px;flex-shrink:0}
+.cuidado-item-text h5{font-size:.9rem;font-weight:700;color:white;margin-bottom:.2rem}
+.cuidado-item-text p{font-size:.8rem;line-height:1.6;color:rgba(255,255,255,.42)}
+
+/* DIFERENCIACIÓN */
+.diferencia-section{background:var(--crema);padding:6rem 4rem}
+.diferencia-inner{max-width:1200px;margin:0 auto}
+.diferencia-head{max-width:620px;margin-bottom:3.5rem}
+.diferencia-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.diferencia-card{background:white;border-radius:3px;padding:2rem;display:flex;gap:1.4rem;align-items:flex-start;transition:box-shadow .2s}
+.diferencia-card:hover{box-shadow:0 6px 20px rgba(36,37,46,.07)}
+.diferencia-vs{display:flex;flex-direction:column;gap:.2rem;flex-shrink:0}
+.diferencia-vs .label{font-size:.55rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(36,37,46,.28)}
+.diferencia-vs .badge{font-size:.7rem;font-weight:800;padding:.25rem .6rem;border-radius:2px}
+.diferencia-vs .badge.si{background:rgba(55,97,53,.12);color:var(--verde)}
+.diferencia-vs .badge.no{background:rgba(36,37,46,.08);color:rgba(36,37,46,.4)}
+.diferencia-content h4{font-size:.92rem;font-weight:800;margin-bottom:.35rem}
+.diferencia-content p{font-size:.82rem;line-height:1.65;color:rgba(36,37,46,.55)}
+
+/* QUOTE */
+.quote-section{background:var(--rojo);padding:5rem 4rem;text-align:center}
+.quote-text{font-size:clamp(1.4rem,2.2vw,2rem);font-weight:700;font-style:italic;line-height:1.4;letter-spacing:-.02em;color:white;max-width:820px;margin:0 auto 1.5rem}
+.quote-attr{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* EJES RELACIONADOS */
+.ejes-section{background:white;padding:5rem 4rem}
+.ejes-inner{max-width:1200px;margin:0 auto}
+.ejes-head{margin-bottom:3rem}
+.ejes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.eje-link-card{background:var(--crema);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--azul);transition:transform .2s,box-shadow .2s}
+.eje-link-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(36,37,46,.09)}
+.eje-link-bar{height:5px}
+.eje-link-bar.rojo{background:var(--rojo)}.eje-link-bar.verde{background:var(--verde)}.eje-link-bar.azul{background:var(--azul)}
+.eje-link-body{padding:1.8rem 2rem 2rem;flex:1;display:flex;flex-direction:column}
+.eje-link-num{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(36,37,46,.3);margin-bottom:.6rem}
+.eje-link-card h3{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:.7rem}
+.eje-link-card p{font-size:.85rem;line-height:1.68;color:rgba(36,37,46,.55);flex:1;margin-bottom:1.2rem}
+.eje-arrow{font-size:.78rem;font-weight:700;color:rgba(36,37,46,.4);display:inline-flex;align-items:center;gap:.3rem;transition:gap .2s,color .2s;margin-top:auto}
+.eje-link-card:hover .eje-arrow{gap:.6rem;color:var(--rojo)}
+
+/* DONAR CTA */
+.donar-cta{background:var(--azul);padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.donar-cta-text .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:1rem}
+.donar-cta-text h2{font-size:clamp(2rem,3vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:white;margin-bottom:1.2rem}
+.donar-cta-text p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.5)}
+.donar-cta-actions{display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--rojo);color:white;padding:1rem 2.2rem;border-radius:2px;font-weight:800;font-size:.95rem;transition:background .2s,transform .15s}
+.btn-primary:hover{background:#d4533a;transform:translateY(-1px)}
+.btn-outline-white{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid rgba(255,255,255,.2);color:white;padding:.9rem 2rem;border-radius:2px;font-weight:600;font-size:.88rem;transition:border-color .2s,background .2s}
+.btn-outline-white:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06)}
+.donar-note{font-size:.68rem;color:rgba(255,255,255,.22);letter-spacing:.04em}
+
+/* FOOTER */
+footer{background:var(--azul);color:white;padding:4rem 4rem 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+footer img.foot-logo{height:30px;margin-bottom:1.2rem;display:block;filter:brightness(0) invert(1)}
+.foot-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.3);max-width:260px}
+.foot-col h5{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:1.2rem}
+.foot-col li{margin-bottom:.65rem}.foot-col a{color:rgba(255,255,255,.5);font-size:.85rem;font-weight:500;transition:color .2s}.foot-col a:hover{color:var(--rojo)}
+.footer-bottom{padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.18)}
+.foot-social{display:flex;gap:.8rem}.foot-social a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.7rem;font-weight:700;transition:all .2s}.foot-social a:hover{border-color:var(--rojo);color:white;background:var(--rojo)}
+.scroll-top{position:fixed;bottom:2rem;right:2rem;z-index:50;width:44px;height:44px;background:var(--azul);color:white;border:none;border-radius:50%;cursor:pointer;font-size:1rem;opacity:0;transition:opacity .3s,background .2s;pointer-events:none}
+.scroll-top.on{opacity:1;pointer-events:all}.scroll-top:hover{background:var(--rojo)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1100px){
+  nav,nav.solid{padding:1rem 2rem}.nav-links{display:none}.hamburger{display:flex}
+  .hero-body{padding:100px 2rem 4rem}
+  .eje-bloque{padding:4rem 2rem}
+  .eje-two-col{grid-template-columns:1fr;gap:2.5rem}.eje-two-col.reverse{direction:ltr}
+  .cohousing-features-section{padding:4rem 2rem}.cf-grid{grid-template-columns:1fr 1fr}
+  .cuidado-section{padding:4rem 2rem}.cuidado-inner{grid-template-columns:1fr;gap:3rem}
+  .diferencia-section{padding:4rem 2rem}.diferencia-grid{grid-template-columns:1fr}
+  .quote-section{padding:4rem 2rem}
+  .ejes-section{padding:4rem 2rem}.ejes-grid{grid-template-columns:1fr}
+  .donar-cta{grid-template-columns:1fr;gap:2rem;padding:4rem 2rem}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}footer{padding:3rem 2rem 1.5rem}
+}
+@media(max-width:640px){
+  .cf-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar" class="over-bg">
+  <a href="/">
+    <img src="/logo_web.png" alt="Amapolas Cooperativa de Viviendas" class="nav-logo-color">
+    <img src="/logo_web_neg2.png" alt="Amapolas Cooperativa de Viviendas" class="nav-logo-neg">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li class="nav-item has-dropdown">
+      <a href="/nosotras" class="active">Nosotras</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Nosotras</span>
+        <a href="/nosotras/genero">Género</a>
+        <a href="/nosotras/sustentabilidad">Hábitat Sustentable</a>
+        <a href="/nosotras/interculturalidad">Interculturalidad</a>
+        <a href="/nosotras/cohousing">Cuidado y Cohousing</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/proyectos">Proyectos</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Proyectos</span>
+        <a href="/proyectos/vivienda">Barrio Amapolas</a>
+        <a href="/proyectos/productivos">Proyectos agroecológicos</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/prensa">Acciones y Prensa</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Acciones y Prensa</span>
+        <a href="/prensa#eventos">Eventos / Charlas / Capacitaciones</a>
+        <a href="/prensa">Prensa</a>
+        <a href="/prensa#kit">Kit de Prensa</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/comunidad">Comunidad</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Comunidad</span>
+        <a href="/comunidad#aliados">Aliados</a>
+        <a href="/comunidad#fundaciones">Fundaciones y Organizaciones</a>
+        <a href="/comunidad#sponsors">Sponsors</a>
+        <a href="/comunidad#donantes">Donantes</a>
+        <a href="/comunidad#comunidad">Comunidad</a>
+      </div>
+    </li>
+    <li class="nav-lang">
+      <a href="?lang=es" class="lang-btn lang-active">ES</a>
+      <span class="lang-sep">/</span>
+      <a href="?lang=en" class="lang-btn">EN</a>
+    </li>
+    <li><a href="/#donar" class="cta">Donar ahora</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+  <a href="/" onclick="document.getElementById('mob').classList.remove('open')">Home</a>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Nosotras <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/nosotras" onclick="document.getElementById('mob').classList.remove('open')">Nosotras</a>
+      <a href="/nosotras/genero" onclick="document.getElementById('mob').classList.remove('open')">Género</a>
+      <a href="/nosotras/sustentabilidad" onclick="document.getElementById('mob').classList.remove('open')">Hábitat Sustentable</a>
+      <a href="/nosotras/interculturalidad" onclick="document.getElementById('mob').classList.remove('open')">Interculturalidad</a>
+      <a href="/nosotras/cohousing" onclick="document.getElementById('mob').classList.remove('open')">Cuidado y Cohousing</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Proyectos <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/proyectos" onclick="document.getElementById('mob').classList.remove('open')">Proyectos</a>
+      <a href="/proyectos/vivienda" onclick="document.getElementById('mob').classList.remove('open')">Barrio Amapolas</a>
+      <a href="/proyectos/productivos" onclick="document.getElementById('mob').classList.remove('open')">Proyectos agroecológicos</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Acciones y Prensa <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/prensa#eventos" onclick="document.getElementById('mob').classList.remove('open')">Eventos / Capacitaciones</a>
+      <a href="/prensa" onclick="document.getElementById('mob').classList.remove('open')">Prensa</a>
+      <a href="/prensa#kit" onclick="document.getElementById('mob').classList.remove('open')">Kit de Prensa</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Comunidad <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/comunidad#aliados" onclick="document.getElementById('mob').classList.remove('open')">Aliados</a>
+      <a href="/comunidad#fundaciones" onclick="document.getElementById('mob').classList.remove('open')">Fundaciones y Org.</a>
+      <a href="/comunidad#sponsors" onclick="document.getElementById('mob').classList.remove('open')">Sponsors</a>
+      <a href="/comunidad#donantes" onclick="document.getElementById('mob').classList.remove('open')">Donantes</a>
+    </div>
+  </div>
+  <div class="mob-lang">
+    <a href="?lang=es" class="lang-btn lang-active">ES</a>
+    <span class="lang-sep">/</span>
+    <a href="?lang=en" class="lang-btn">EN</a>
+  </div>
+  <a href="/#donar" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--rojo)">Donar ahora</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-deco">◎</div>
+  <div class="hero-body">
+    <div class="hero-breadcrumb">
+      <a href="/">Inicio</a><span>/</span>
+      <a href="/nosotras">Nosotras</a><span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Cuidado y Cohousing</span>
+    </div>
+    <div class="hero-badge">
+      <span style="font-size:.8rem">04</span> · Modelo de hábitat
+    </div>
+    <h1 class="hero-title">El cuidado como<br>infraestructura,<br>no como extra</h1>
+    <p class="hero-subtitle">El cohousing feminista de Amapolas no solo resuelve el acceso a la vivienda: diseña el cuidado como parte estructural del barrio desde el primer plano.</p>
+  </div>
+  <div class="hero-tabs">
+    <a href="#cohousing" class="hero-tab">Qué es el cohousing</a>
+    <a href="#cuidado" class="hero-tab">Cuidado como infraestructura</a>
+    <a href="#como-amapolas" class="hero-tab">Cómo lo implementamos</a>
+  </div>
+</div>
+
+<!-- QUÉ ES EL COHOUSING -->
+<div class="eje-bloque bg-white" id="cohousing">
+  <div class="eje-two-col">
+    <div class="reveal">
+      <p class="section-eyebrow">Para quien llega sin contexto</p>
+      <h2 class="section-title">¿Qué es<br>el cohousing?</h2>
+      <div class="prose">
+        <p>El cohousing es un modelo de vivienda comunitaria con décadas de historia en Europa y América del Norte, que combina privacidad individual con vida comunitaria deliberada. No es una comuna ni una casa colectiva: es una forma de habitar que reconoce que las personas necesitan tanto espacio propio como vínculos reales.</p>
+        <p>En el modelo de cohousing, <strong>cada familia o persona tiene su unidad privada</strong> — cocina, baño, dormitorios propios — y comparte con el resto del grupo espacios diseñados específicamente para la vida comunitaria: cocina grande, sala de reuniones, lavandería, huerta, espacios de cuidado.</p>
+        <p>La clave es que esos espacios compartidos <strong>no son un bonus ni un lujo</strong>: son infraestructura planificada desde el diseño arquitectónico, con la misma jerarquía que las unidades privadas.</p>
+      </div>
+      <div class="cohousing-def">
+        <p><strong>¿Por qué importa para Amapolas?</strong> Para mujeres y disidencias, el cohousing no es solo una opción habitacional: es una estrategia de autonomía. Compartir ciertos recursos y espacios reduce la carga individual del trabajo doméstico y de cuidado, históricamente recaída sobre los cuerpos feminizados.</p>
+      </div>
+    </div>
+    <div class="eje-photo reveal">
+      <img src="/proyectos/vivienda.jpeg" alt="Diseño participativo del Barrio Amapolas: modelo de cohousing feminista en Bariloche, Patagonia">
+      <div class="eje-photo-placeholder"><span>Diseño / plano / espacio compartido</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CÓMO LO IMPLEMENTA AMAPOLAS -->
+<section class="cohousing-features-section">
+  <div class="cf-inner">
+    <div class="cf-head reveal">
+      <p class="section-eyebrow">El modelo de Amapolas</p>
+      <h2 class="section-title">Cohousing con<br>perspectiva feminista</h2>
+      <p style="font-size:1rem;line-height:1.78;color:rgba(36,37,46,.58);max-width:580px;margin-top:.8rem">El Barrio Amapolas no copia el modelo europeo. Lo adapta al contexto patagónico, a los recursos disponibles y, sobre todo, a las necesidades concretas de mujeres y disidencias en situación de precariedad habitacional.</p>
+    </div>
+    <div class="cf-grid reveal">
+      <div class="cf-card">
+        <div class="cf-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 9 12 2 21 9 21 20 3 20 3 9"/></svg>
+        </div>
+        <p class="cf-tag">Privacidad garantizada</p>
+        <h4>Unidades privadas propias</h4>
+        <p>Cada socia tendrá su vivienda propia con cocina, baño y dormitorios. La privacidad no se negocia: es la base del modelo.</p>
+      </div>
+      <div class="cf-card">
+        <div class="cf-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <p class="cf-tag">Espacios diseñados</p>
+        <h4>Infraestructura comunitaria</h4>
+        <p>Sala de cuidado, cocina comunitaria, huerta y espacio de encuentro diseñados como parte estructural del barrio, no como agregados opcionales.</p>
+      </div>
+      <div class="cf-card">
+        <div class="cf-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="cf-tag">Proceso</p>
+        <h4>Diseño participativo</h4>
+        <p>Cada decisión sobre el barrio se toma en asamblea. El diseño refleja las necesidades reales de quienes lo habitarán, no las suposiciones de profesionales externos.</p>
+      </div>
+      <div class="cf-card">
+        <div class="cf-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <p class="cf-tag">Construcción</p>
+        <h4>Bioconstrucción y diseño bioclimático</h4>
+        <p>Barro, madera recuperada y orientación solar para viviendas que regulen temperatura naturalmente, adaptadas al clima patagónico.</p>
+      </div>
+      <div class="cf-card">
+        <div class="cf-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 7 10 5 6c4 0 7 2 7 6z"/><path d="M12 12c0 0 5-2 7-6-4 0-7 2-7 6z"/></svg>
+        </div>
+        <p class="cf-tag">Territorio</p>
+        <h4>Integración con el ecosistema</h4>
+        <p>Captación de lluvia, gestión de residuos y huerta comunitaria como componentes del barrio que conectan la vida cotidiana con el territorio patagónico.</p>
+      </div>
+      <div class="cf-card">
+        <div class="cf-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <p class="cf-tag">Gobernanza</p>
+        <h4>Decisiones colectivas horizontales</h4>
+        <p>El barrio se gestiona colectivamente. Las normas de convivencia, los gastos comunes y las modificaciones se deciden en asamblea entre todas las vecinas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUIDADO COMO INFRAESTRUCTURA -->
+<section class="cuidado-section" id="cuidado">
+  <div class="cuidado-inner">
+    <div class="cuidado-text reveal">
+      <p class="section-eyebrow">Lo que nos diferencia</p>
+      <h2 class="section-title" style="color:white">El cuidado como<br>infraestructura diseñada</h2>
+      <p>La mayoría de los proyectos de vivienda ignoran que el trabajo de cuidado existe. Las casas se diseñan asumiendo que alguien —generalmente una mujer— resolverá cómo y dónde cuidar a niñas, niños, personas mayores y enfermas.</p>
+      <p>Amapolas hace lo contrario: <strong>el cuidado es un componente del diseño arquitectónico</strong>, con la misma jerarquía que los dormitorios o la cocina. Esto no es un valor declarativo — es una decisión tomada en el proceso de diseño participativo con la Arq. Mariana Enet.</p>
+      <div class="ods-highlight" style="--rojo: var(--rojo)">
+        <div class="ods-item" style="background:rgba(237,105,75,.12);border-left-color:rgba(237,105,75,.6)">
+          <p class="ods-num" style="color:rgba(237,105,75,.9)">ODS 3 — Salud y bienestar</p>
+          <p style="color:rgba(255,255,255,.6)">El diseño del barrio incluye <strong style="color:white">espacios de cuidado colectivo y bienestar como infraestructura planificada</strong>. La vivienda segura y estable es condición material de salud física y mental.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cuidado-list reveal">
+      <div class="cuidado-item">
+        <span class="cuidado-item-num">01</span>
+        <div class="cuidado-item-text">
+          <h5>Sala de cuidado infantil</h5>
+          <p>Espacio específico para la crianza compartida. Reduce la carga individual de las madres y permite que las socias participen de asambleas, formaciones y actividades productivas.</p>
+        </div>
+      </div>
+      <div class="cuidado-item">
+        <span class="cuidado-item-num">02</span>
+        <div class="cuidado-item-text">
+          <h5>Espacio de contención y apoyo mutuo</h5>
+          <p>Un lugar de encuentro entre socias para el sostén emocional y la resolución de situaciones de crisis. La red comunitaria como infraestructura de salud mental.</p>
+        </div>
+      </div>
+      <div class="cuidado-item">
+        <span class="cuidado-item-num">03</span>
+        <div class="cuidado-item-text">
+          <h5>Zona de producción doméstica compartida</h5>
+          <p>Cocina comunitaria grande, lavandería colectiva y espacio de conservación de alimentos. Reduce el tiempo destinado a tareas domésticas repetitivas.</p>
+        </div>
+      </div>
+      <div class="cuidado-item">
+        <span class="cuidado-item-num">04</span>
+        <div class="cuidado-item-text">
+          <h5>Accesibilidad como derecho, no como adaptación</h5>
+          <p>El diseño incorpora criterios de accesibilidad desde el inicio, no como corrección posterior, para que el barrio sea habitable para cuerpos en distintas etapas de la vida.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ LO DIFERENCIA DE OTROS PROYECTOS -->
+<section class="diferencia-section" id="como-amapolas">
+  <div class="diferencia-inner">
+    <div class="diferencia-head reveal">
+      <p class="section-eyebrow">Por qué importa</p>
+      <h2 class="section-title">Qué distingue este modelo<br>de otros proyectos de vivienda</h2>
+      <p style="font-size:1rem;line-height:1.78;color:rgba(36,37,46,.58);max-width:580px;margin-top:.8rem">No todos los proyectos cooperativos de vivienda son iguales. Estas son las decisiones específicas que hacen al modelo de Amapolas diferente y replicable.</p>
+    </div>
+    <div class="diferencia-grid reveal">
+      <div class="diferencia-card">
+        <div class="diferencia-vs">
+          <span class="label">Amapolas</span>
+          <span class="badge si">Sí</span>
+        </div>
+        <div class="diferencia-content">
+          <h4>Cuidado como infraestructura desde el diseño</h4>
+          <p>Los espacios de cuidado se planifican en el plano original, no se agregan después cuando surge la necesidad.</p>
+        </div>
+      </div>
+      <div class="diferencia-card">
+        <div class="diferencia-vs">
+          <span class="label">Amapolas</span>
+          <span class="badge si">Sí</span>
+        </div>
+        <div class="diferencia-content">
+          <h4>Conducción 100% femenina y disidente</h4>
+          <p>Todas las decisiones, la gestión financiera y la representación institucional están en manos de mujeres y disidencias.</p>
+        </div>
+      </div>
+      <div class="diferencia-card">
+        <div class="diferencia-vs">
+          <span class="label">Amapolas</span>
+          <span class="badge si">Sí</span>
+        </div>
+        <div class="diferencia-content">
+          <h4>Diseño participativo con metodología UNAM</h4>
+          <p>El proceso de diseño sigue una metodología sistematizada, con acompañamiento profesional especializado en hábitat participativo.</p>
+        </div>
+      </div>
+      <div class="diferencia-card">
+        <div class="diferencia-vs">
+          <span class="label">Amapolas</span>
+          <span class="badge si">Sí</span>
+        </div>
+        <div class="diferencia-content">
+          <h4>Vínculos interculturales como parte del modelo</h4>
+          <p>La relación con comunidades mapuche del territorio es una decisión política estructural, no una actividad complementaria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section reveal">
+  <p class="quote-text">"El cohousing no es vivir juntas. Es diseñar juntas cómo queremos vivir, y construir los espacios que hacen posible esa vida."</p>
+  <p class="quote-attr">Amapolas — Cooperativa de Viviendas · Bariloche, Patagonia Argentina</p>
+</div>
+
+<!-- EJES RELACIONADOS -->
+<section class="ejes-section">
+  <div class="ejes-inner">
+    <div class="ejes-head reveal">
+      <p class="section-eyebrow" style="color:rgba(36,37,46,.4)">Seguir explorando</p>
+      <h2 class="section-title">Los otros ejes<br>que sostienen el modelo</h2>
+    </div>
+    <div class="ejes-grid reveal">
+      <a href="/nosotras/genero" class="eje-link-card">
+        <div class="eje-link-bar rojo"></div>
+        <div class="eje-link-body">
+          <p class="eje-link-num">01 · Perspectiva de género</p>
+          <h3>La habitación propia como derecho</h3>
+          <p>Reivindicamos la casa propia no como sueño sino como derecho esencial para el desarrollo humano de mujeres y disidencias.</p>
+          <span class="eje-arrow">Leer más →</span>
+        </div>
+      </a>
+      <a href="/nosotras/sustentabilidad" class="eje-link-card">
+        <div class="eje-link-bar verde"></div>
+        <div class="eje-link-body">
+          <p class="eje-link-num">02 · Hábitat Sustentable</p>
+          <h3>Construir con las manos y con la cabeza</h3>
+          <p>Bioconstrucción, permacultura social y guardianas del agua. La sustentabilidad como práctica cotidiana en cada decisión del proyecto.</p>
+          <span class="eje-arrow">Leer más →</span>
+        </div>
+      </a>
+      <a href="/nosotras/interculturalidad" class="eje-link-card">
+        <div class="eje-link-bar azul"></div>
+        <div class="eje-link-body">
+          <p class="eje-link-num">03 · Interculturalidad</p>
+          <h3>No se construyen futuros sobre injusticias negadas</h3>
+          <p>Reconocemos la preexistencia mapuche y tejemos alianzas reales con comunidades del territorio que habitamos.</p>
+          <span class="eje-arrow">Leer más →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DONAR CTA -->
+<div class="donar-cta">
+  <div class="donar-cta-text reveal">
+    <p class="eyebrow">Sumate al proyecto</p>
+    <h2>Este modelo se<br>construye con apoyo</h2>
+    <p>Tu donación financia el diseño participativo, los materiales de bioconstrucción y el trabajo de mujeres que construyen un barrio donde el cuidado está en los planos.</p>
+  </div>
+  <div class="donar-cta-actions reveal">
+    <a href="/#donar" class="btn-primary">Donar ahora →</a>
+    <a href="/proyectos/vivienda" class="btn-outline-white">Ver el proyecto de vivienda</a>
+    <p class="donar-note">Cooperativa con personería jurídica INAES N°63884 · Donaciones trazables</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/logo_amapolas.png" alt="Amapolas Cooperativa de Viviendas" class="foot-logo">
+      <p class="foot-desc">Una cooperativa de viviendas conducida por mujeres y disidencias en la Patagonia argentina. Construimos autonomía y comunidad desde Bariloche.</p>
+    </div>
+    <div class="foot-col"><h5>La cooperativa</h5><ul><li><a href="/nosotras">Quiénes somos</a></li><li><a href="/proyectos">Proyectos</a></li><li><a href="/comunidad">Comunidad</a></li><li><a href="/prensa">Prensa</a></li></ul></div>
+    <div class="foot-col"><h5>Colaborar</h5><ul><li><a href="/#donar">Donar</a></li><li><a href="/comunidad#voluntariado">Voluntariado</a></li><li><a href="/comunidad#fundaciones">Alianzas</a></li><li><a href="/prensa#kit">Kit de Prensa</a></li></ul></div>
+    <div class="foot-col"><h5>Contacto</h5><ul><li><a href="mailto:contacto@amapolas.coop">contacto@amapolas.coop</a></li><li><a href="mailto:prensa@amapolas.coop">prensa@amapolas.coop</a></li><li><a href="#">Bariloche, Río Negro</a></li><li><a href="#" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Amapolas Cooperativa de Viviendas Ltda. · INAES N°63884 · Bariloche, Río Negro</p>
+    <div class="foot-social">
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="#" aria-label="Facebook">fb</a>
+      <a href="#" aria-label="WhatsApp">wa</a>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="stop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<script>
+const navbar = document.getElementById('navbar');
+function updateNav() {
+  const past = window.scrollY > 40;
+  navbar.classList.toggle('over-bg', !past);
+  navbar.classList.toggle('solid', past);
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+window.addEventListener('scroll', () => {
+  document.getElementById('stop').classList.toggle('on', window.scrollY > 500);
+}, {passive:true});
+document.getElementById('ham').addEventListener('click', () =>
+  document.getElementById('mob').classList.add('open')
+);
+function toggleMobAcc(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+const io = new IntersectionObserver(
+  entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+  {threshold:.08}
+);
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
