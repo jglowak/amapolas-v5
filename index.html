@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amapolas — Cooperativa de Viviendas · Bariloche, Patagonia</title>
+<meta name="description" content="Cooperativa de vivienda feminista en Bariloche, Patagonia Argentina. Hábitat comunitario liderado por mujeres y disidencias. Bioconstrucción, cooperativismo y perspectiva de género.">
+<link rel="canonical" href="https://amapolas.org/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Amapolas Cooperativa de Viviendas",
+  "url": "https://amapolas.org",
+  "logo": "https://amapolas.org/logo_web.png",
+  "description": "Cooperativa de vivienda con perspectiva feminista y enfoque regenerativo, desarrollada por mujeres y disidencias en Bariloche, Patagonia Argentina.",
+  "foundingDate": "2022",
+  "areaServed": "Argentina",
+  "sameAs": [
+    "https://www.instagram.com/amapolas.cooperativa",
+    "https://www.globalgiving.org"
+  ]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --azul:  #24252e;
+  --rojo:  #ed694b;
+  --verde: #376135;
+  --crema: #eae9e2;
+  --font:  'DM Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--crema);color:var(--azul);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+ul{list-style:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;transition:background .4s,box-shadow .4s,padding .3s}
+nav.solid{background:var(--crema);box-shadow:0 1px 0 rgba(36,37,46,.1);padding:1rem 4rem}
+nav.over-bg .nav-logo-color{display:none}
+nav.over-bg .nav-logo-neg{display:block}
+nav.solid   .nav-logo-color{display:block}
+nav.solid   .nav-logo-neg{display:none}
+.nav-logo-color,.nav-logo-neg{height:36px;display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:.875rem;font-weight:600;letter-spacing:.03em;opacity:.75;transition:opacity .2s,color .4s}
+nav.over-bg .nav-links a{color:white}
+nav.solid   .nav-links a{color:var(--azul)}
+.nav-links a:hover{opacity:1}
+nav.solid .nav-links a.active{opacity:1;border-bottom:2px solid var(--rojo);padding-bottom:2px}
+nav.over-bg .nav-links a.active{opacity:1}
+.nav-links .cta{opacity:1!important;background:var(--rojo);color:#fff!important;padding:.6rem 1.5rem;border-radius:2px;transition:background .2s}
+.nav-links .cta:hover{background:#d4533a}
+nav.over-bg .nav-links .cta{background:white;color:var(--rojo)!important}
+nav.over-bg .nav-links .cta:hover{background:var(--crema)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;transition:background .4s}
+nav.over-bg .hamburger span{background:white}
+nav.solid   .hamburger span{background:var(--azul)}
+.nav-item{position:relative}
+.nav-dropdown{display:none;position:absolute;top:100%;padding-top:.8rem;left:50%;transform:translateX(-50%);background:white;border-radius:3px;box-shadow:0 8px 32px rgba(36,37,46,.14);min-width:220px;overflow:hidden;z-index:200}
+.nav-item:hover .nav-dropdown{display:block}
+.nav-dropdown a{display:flex;align-items:center;gap:.8rem;padding:.85rem 1.2rem;font-size:.82rem;font-weight:600;color:var(--azul)!important;opacity:1!important;border-bottom:1px solid rgba(36,37,46,.06);transition:background .15s}
+.nav-dropdown a:last-child{border-bottom:none}
+.nav-dropdown a:hover{background:var(--crema)}
+.nav-dropdown-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.7rem 1.2rem .3rem;color:rgba(36,37,46,.3);display:block}
+.has-dropdown>a::after{content:'▾';font-size:.65rem;margin-left:.3rem;opacity:.5;vertical-align:middle}
+.mobile-overlay{display:none;position:fixed;inset:0;z-index:98;background:var(--azul);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;overflow-y:auto;padding:4rem 2rem}
+.mobile-overlay.open{display:flex}
+.mobile-overlay a{font-size:1.8rem;font-weight:800;color:white;letter-spacing:-.02em;transition:color .2s}
+.mobile-overlay a:hover{color:var(--rojo)}
+.mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;font-size:1.8rem;cursor:pointer;color:white}
+.mob-accordion{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.mob-acc-btn{background:none;border:none;cursor:pointer;font-family:var(--font);font-size:1.8rem;font-weight:800;color:white;letter-spacing:-.02em;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.mob-acc-btn:hover{color:var(--rojo)}
+.mob-acc-arrow{font-size:1rem;transition:transform .25s;display:inline-block}
+.mob-acc-btn.open .mob-acc-arrow{transform:rotate(180deg)}
+.mob-acc-panel{display:none;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem 0}
+.mob-acc-panel.open{display:flex}
+.mob-acc-panel a{font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:-.01em;transition:color .2s}
+.mob-acc-panel a:hover{color:white}
+.nav-lang{display:flex;align-items:center;gap:.2rem}
+.lang-btn{font-size:.72rem!important;font-weight:700;letter-spacing:.1em;opacity:.38!important;transition:opacity .2s}
+.lang-btn:hover,.lang-btn.lang-active{opacity:1!important}
+.lang-sep{font-size:.65rem;opacity:.2}
+nav.over-bg .lang-btn{color:white}
+nav.solid .lang-btn{color:var(--azul)}
+.mob-lang{display:flex;align-items:center;gap:.4rem}
+.mob-lang .lang-btn{font-size:1rem!important;font-weight:700;color:rgba(255,255,255,.4)}
+.mob-lang .lang-btn.lang-active{color:white;opacity:1!important}
+.mob-lang .lang-sep{color:rgba(255,255,255,.2);font-size:.9rem}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(150deg,#1a3314 0%,var(--verde) 55%,#2a3d1e 100%)}
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(36,37,46,.9) 0%,rgba(36,37,46,.4) 45%,rgba(36,37,46,.12) 75%,transparent 100%)}
+.hero-overlay-top{position:absolute;top:0;left:0;right:0;height:200px;z-index:1;background:linear-gradient(to bottom,rgba(36,37,46,.85),transparent)}
+.hero-body{position:relative;z-index:2;padding:140px 4rem 3.5rem;max-width:760px}
+.hero-eyebrow{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:1.4rem}
+.hero-title{font-size:clamp(2.8rem,5.2vw,5.8rem);font-weight:800;line-height:.97;letter-spacing:-.035em;color:white;margin-bottom:1.4rem}
+.hero-title .accent{color:var(--rojo)}
+.hero-subtitle{font-size:1.05rem;font-weight:400;line-height:1.75;color:rgba(255,255,255,.58);max-width:540px;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn-primary-hero{display:inline-flex;align-items:center;gap:.5rem;background:var(--rojo);color:white;font-size:.9rem;font-weight:800;padding:.9rem 2rem;border-radius:2px;transition:background .2s}
+.btn-primary-hero:hover{background:#d4533a}
+.btn-ghost{display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 1.8rem;border:1.5px solid rgba(255,255,255,.28);border-radius:2px;color:white;font-size:.85rem;font-weight:600;letter-spacing:.04em;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:white;background:rgba(255,255,255,.08)}
+
+/* ─── CONTADOR DE CAMPAÑA (módulo activable/desactivable) ─── */
+/*
+  Para ACTIVAR la campaña: cambiar display:none a display:block en #campaign-counter
+  Para DESACTIVAR: volver a display:none
+  No tocar ningún otro elemento del sitio.
+*/
+#campaign-counter{display:none;background:white;border-top:3px solid var(--rojo);padding:2.5rem 4rem}
+#campaign-counter.active{display:block}
+.cc-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.cc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.cc-stat{}
+.cc-stat-num{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;color:var(--azul);line-height:1}
+.cc-stat-num span{font-size:1rem;font-weight:500;opacity:.5}
+.cc-stat-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(36,37,46,.35);margin-top:.3rem}
+.cc-progress-wrap{}
+.cc-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rojo);margin-bottom:.8rem}
+.cc-title{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:1.2rem}
+.cc-bar-bg{width:100%;height:10px;background:rgba(36,37,46,.08);border-radius:5px;overflow:hidden;margin-bottom:.6rem}
+.cc-bar-fill{height:100%;background:var(--rojo);border-radius:5px;transition:width 1s ease}
+.cc-bar-labels{display:flex;justify-content:space-between;font-size:.72rem;color:rgba(36,37,46,.45);font-weight:600;margin-bottom:1.5rem}
+.cc-bar-labels strong{color:var(--azul)}
+.btn-gg{display:inline-flex;align-items:center;gap:.6rem;background:var(--rojo);color:white;font-size:.9rem;font-weight:800;padding:.85rem 1.8rem;border-radius:2px;transition:background .2s}
+.btn-gg:hover{background:#d4533a}
+
+/* SECCIONES */
+.section-eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rojo);margin-bottom:1rem}
+.section-title{font-size:clamp(1.9rem,3vw,2.8rem);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-bottom:1.2rem}
+.section-body{font-size:1rem;font-weight:400;line-height:1.8;color:rgba(36,37,46,.58);max-width:520px}
+
+/* ABOUT */
+.about-section{background:white;padding:7rem 4rem}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1200px;margin:0 auto;align-items:center}
+.about-collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:260px 260px;gap:.6rem}
+.collage-img{border-radius:3px;overflow:hidden;position:relative;background:rgba(36,37,46,.08)}
+.collage-img img{width:100%;height:100%;object-fit:cover;display:block}
+.collage-img.tall{grid-row:span 2}
+.collage-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.collage-placeholder span{font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(36,37,46,.25)}
+.collage-placeholder svg{width:28px;height:28px;color:rgba(36,37,46,.15)}
+.about-content{display:flex;flex-direction:column;justify-content:center}
+.pillar-list{margin-top:2.5rem}
+.pillar{display:flex;gap:1.2rem;align-items:flex-start;padding:1.5rem 0;border-bottom:1px solid rgba(36,37,46,.07)}
+.pillar:first-child{padding-top:0}
+.pillar:last-child{border:none;padding-bottom:0}
+.pillar-number{font-size:.62rem;font-weight:800;letter-spacing:.1em;color:var(--rojo);min-width:28px;padding-top:3px}
+.pillar-text h4{font-size:.95rem;font-weight:700;margin-bottom:.3rem}
+.pillar-text p{font-size:.85rem;line-height:1.7;color:rgba(36,37,46,.55)}
+
+/* QUOTE */
+.quote-section{background:var(--crema);padding:6rem 4rem;text-align:center;position:relative;overflow:hidden}
+.quote-section::before{content:'\201C';position:absolute;top:-40px;left:50%;transform:translateX(-50%);font-size:22rem;line-height:1;color:var(--rojo);opacity:.05;font-family:Georgia,serif;pointer-events:none;user-select:none}
+.quote-text{font-size:clamp(1.5rem,2.5vw,2.3rem);font-weight:700;font-style:italic;line-height:1.35;letter-spacing:-.02em;max-width:860px;margin:0 auto 2rem;color:var(--azul);position:relative}
+.quote-attr{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(36,37,46,.35)}
+.quote-attr strong{color:var(--verde)}
+
+/* INDICADORES */
+.indicadores-section{background:var(--rojo);padding:3.5rem 4rem}
+.indicadores-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem;align-items:start}
+.indicador{}
+.indicador-num{font-size:2.8rem;font-weight:800;color:white;letter-spacing:-.04em;line-height:1}
+.indicador-label{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.65);line-height:1.45;margin-top:.3rem}
+
+/* DOSSIER */
+.dossier-section{background:var(--azul);padding:3.5rem 4rem}
+.dossier-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+.dossier-text .label{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,105,75,.8);margin-bottom:.6rem}
+.dossier-text h2{font-size:clamp(1.3rem,2vw,1.8rem);font-weight:800;color:white;letter-spacing:-.025em;line-height:1.15;margin-bottom:.5rem}
+.dossier-text p{font-size:.9rem;color:rgba(255,255,255,.45);line-height:1.7}
+.dossier-btns{display:flex;gap:.8rem;flex-wrap:wrap;flex-shrink:0}
+.btn-dossier{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.6rem;border-radius:2px;font-size:.85rem;font-weight:800;transition:all .2s}
+.btn-dossier.es{background:var(--rojo);color:white}
+.btn-dossier.es:hover{background:#d4533a}
+.btn-dossier.en{background:rgba(255,255,255,.1);color:white;border:1.5px solid rgba(255,255,255,.2)}
+.btn-dossier.en:hover{background:rgba(255,255,255,.18)}
+
+/* PROYECTOS */
+.projects-section{background:var(--crema);padding:6rem 4rem}
+.projects-header{margin-bottom:3.5rem}
+.projects-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.project-card{background:white;border-radius:3px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--azul);transition:transform .2s,box-shadow .2s}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(36,37,46,.1)}
+.project-card-image{aspect-ratio:4/3;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.project-card-image.color-azul{background:var(--azul)}
+.project-card-image.color-verde{background:var(--verde)}
+.project-card-image.color-rojo{background:var(--rojo)}
+.project-card-image.color-dark{background:#2e3040}
+.project-card-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.project-card-image-placeholder{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+.project-card-body{padding:1.6rem 1.8rem 2rem;flex:1;display:flex;flex-direction:column}
+.project-num{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rojo);margin-bottom:.6rem}
+.project-num.verde{color:var(--verde)}
+.project-card h3{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:.7rem}
+.project-card p{font-size:.85rem;line-height:1.7;color:rgba(36,37,46,.55);flex:1;margin-bottom:1.2rem}
+.project-link{font-size:.75rem;font-weight:700;color:var(--azul);display:inline-flex;align-items:center;gap:.35rem;transition:gap .2s,color .2s;margin-top:auto}
+.project-card:hover .project-link{gap:.6rem;color:var(--rojo)}
+
+/* VALORES */
+.valores-section{background:var(--azul);padding:5rem 4rem}
+.valores-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:3rem}
+.valor-item{background:var(--azul);padding:2rem 1.5rem}
+.valor-item h4{font-size:.88rem;font-weight:800;color:white;margin-bottom:.6rem;letter-spacing:-.01em}
+.valor-item p{font-size:.78rem;line-height:1.65;color:rgba(255,255,255,.38)}
+.valor-num{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo);margin-bottom:1rem}
+
+/* DONACIÓN */
+.donation-section{background:var(--rojo);color:white;display:grid;grid-template-columns:5fr 7fr;min-height:70vh}
+.donation-content{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.donation-content::after{content:'';position:absolute;bottom:-80px;right:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.05)}
+.donation-content .section-eyebrow{color:rgba(255,255,255,.48)}
+.donation-content .section-title{color:white}
+.donation-content .section-body{color:rgba(255,255,255,.65)}
+.donation-impacts{margin-top:2.5rem;display:flex;flex-direction:column;gap:.7rem}
+.donation-impact-row{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:rgba(255,255,255,.72);padding:.85rem 1.1rem;background:rgba(255,255,255,.1);border-radius:3px;font-weight:500}
+.donation-impact-row strong{color:white;font-weight:800;min-width:68px;font-size:.95rem}
+.donation-widget{background:white;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3.5rem}
+.widget-label{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rojo);margin-bottom:.6rem;text-align:center}
+.widget-sublabel{font-size:.8rem;color:rgba(36,37,46,.45);text-align:center;margin-bottom:1.5rem;font-weight:400}
+.mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;width:100%;max-width:420px;margin-bottom:1rem}
+.mp-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem .8rem;gap:.3rem;background:var(--azul);border-radius:3px;text-decoration:none;color:white;transition:background .2s,transform .15s;text-align:center}
+.mp-btn:hover{background:#1a1b22;transform:translateY(-2px)}
+.mp-btn .mp-amount{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+.mp-btn .mp-impact{font-size:.65rem;font-weight:500;color:rgba(255,255,255,.55);line-height:1.3;margin-top:.2rem}
+.mp-btn.featured{background:var(--rojo)}
+.mp-btn.featured:hover{background:#d4533a}
+.mp-divider{width:100%;max-width:420px;display:flex;align-items:center;gap:.8rem;margin:.8rem 0}
+.mp-divider::before,.mp-divider::after{content:'';flex:1;height:1px;background:rgba(36,37,46,.1)}
+.mp-divider span{font-size:.68rem;color:rgba(36,37,46,.35);font-weight:600;letter-spacing:.08em;white-space:nowrap}
+.mp-otro{display:block;width:100%;max-width:420px;text-align:center;padding:.85rem;border:1.5px solid rgba(36,37,46,.15);border-radius:3px;font-family:var(--font);font-size:.85rem;font-weight:600;color:var(--azul);text-decoration:none;transition:border-color .2s,background .2s;margin-bottom:.6rem}
+.mp-otro:hover{border-color:var(--azul);background:var(--crema)}
+.mp-suscripcion-label{font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(36,37,46,.3);text-align:center;margin:1.2rem 0 .7rem;width:100%;max-width:420px}
+.mp-suscripcion-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;width:100%;max-width:420px;margin-bottom:1rem}
+.mp-sus-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.85rem .6rem;gap:.2rem;background:var(--verde);border-radius:3px;text-decoration:none;color:white;transition:background .2s,transform .15s;text-align:center}
+.mp-sus-btn:hover{background:#2a4d28;transform:translateY(-2px)}
+.mp-sus-btn .mp-amount{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+.mp-sus-btn .mp-freq{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.08em}
+.mp-sus-btn .mp-impact{font-size:.62rem;font-weight:400;color:rgba(255,255,255,.5);line-height:1.3}
+.mp-secure{font-size:.66rem;color:rgba(36,37,46,.3);text-align:center;letter-spacing:.04em;width:100%;max-width:420px}
+
+/* SOCIAS */
+.testimonios{background:var(--verde);padding:6rem 0;overflow:hidden}
+.testimonios-header{padding:0 4rem;margin-bottom:3rem}
+.testimonios .section-eyebrow{color:rgba(255,255,255,.38)}
+.testimonios .section-title{color:white}
+.socias-track-wrap{overflow:hidden}
+.socias-track{display:flex;gap:4px;width:max-content;animation:socias-scroll 28s linear infinite}
+.socias-track:hover{animation-play-state:paused}
+@keyframes socias-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.socia-item{position:relative;overflow:hidden;width:280px;flex-shrink:0;aspect-ratio:3/4;background:rgba(255,255,255,.08)}
+.socia-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.socia-item:hover img{transform:scale(1.04)}
+.socia-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.socia-placeholder-initials{font-size:2.8rem;font-weight:800;color:rgba(255,255,255,.15);letter-spacing:-.04em}
+.socia-hover{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,21,28,.88) 0%,rgba(20,21,28,.2) 55%,transparent 100%);opacity:0;transition:opacity .3s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:1.6rem}
+.socia-item:hover .socia-hover{opacity:1}
+.socia-hover-name{font-size:1rem;font-weight:800;color:white;letter-spacing:-.01em;margin-bottom:.2rem}
+.socia-hover-role{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.04em;margin-bottom:.7rem}
+.socia-hover-quote{font-size:.78rem;font-style:italic;line-height:1.55;color:rgba(255,255,255,.7)}
+
+/* PRENSA BAND */
+.prensa-band{background:white;padding:5rem 4rem;border-top:1px solid rgba(36,37,46,.07)}
+.prensa-band .section-body{margin-bottom:2.5rem}
+.prensa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(36,37,46,.07);margin-bottom:2rem}
+.prensa-item{background:var(--crema);padding:2rem 1.8rem;display:flex;flex-direction:column;gap:.6rem;transition:background .2s}
+.prensa-item:hover{background:#e2e1da}
+.prensa-source{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rojo)}
+.prensa-item h4{font-size:.95rem;font-weight:700;line-height:1.35;color:var(--azul)}
+.prensa-item p{font-size:.82rem;line-height:1.65;color:rgba(36,37,46,.52);flex:1}
+.prensa-item a{font-size:.78rem;font-weight:700;color:var(--azul);display:inline-flex;align-items:center;gap:.3rem;transition:gap .2s;margin-top:.4rem}
+.prensa-item a:hover{gap:.6rem;color:var(--rojo)}
+.prensa-cta{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:700;color:var(--azul);border-bottom:1.5px solid rgba(36,37,46,.2);padding-bottom:2px;transition:color .2s,border-color .2s}
+.prensa-cta:hover{color:var(--rojo);border-color:var(--rojo)}
+
+/* NEWSLETTER */
+.newsletter{background:var(--crema);padding:4rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;border-top:1px solid rgba(36,37,46,.1);flex-wrap:wrap}
+.newsletter h3{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;max-width:360px;line-height:1.2}
+.newsletter-form{display:flex;gap:.6rem;flex-wrap:wrap}
+.newsletter-form input{border:1.5px solid rgba(36,37,46,.18);background:white;border-radius:2px;padding:.85rem 1.5rem;font-family:var(--font);font-size:.9rem;color:var(--azul);width:280px;outline:none;transition:border-color .2s}
+.newsletter-form input:focus{border-color:var(--rojo)}
+.newsletter-form input::placeholder{color:rgba(36,37,46,.3)}
+.newsletter-form button{background:var(--azul);color:white;border:none;border-radius:2px;padding:.85rem 1.8rem;font-family:var(--font);font-weight:700;font-size:.85rem;cursor:pointer;transition:background .2s}
+.newsletter-form button:hover{background:var(--rojo)}
+
+/* FOOTER */
+footer{background:var(--azul);color:white;padding:4rem 4rem 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+footer img.foot-logo{height:30px;margin-bottom:1.2rem;display:block;filter:brightness(0) invert(1)}
+.foot-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.3);max-width:260px}
+.foot-col h5{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:1.2rem}
+.foot-col li{margin-bottom:.65rem}
+.foot-col a{color:rgba(255,255,255,.5);font-size:.85rem;font-weight:500;transition:color .2s}
+.foot-col a:hover{color:var(--rojo)}
+.footer-bottom{padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.18)}
+.foot-social{display:flex;gap:.8rem}
+.foot-social a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.7rem;font-weight:700;transition:all .2s}
+.foot-social a:hover{border-color:var(--rojo);color:white;background:var(--rojo)}
+
+/* SCROLL TOP */
+.scroll-top{position:fixed;bottom:2rem;right:2rem;z-index:50;width:44px;height:44px;background:var(--azul);color:white;border:none;border-radius:50%;cursor:pointer;font-size:1rem;opacity:0;transition:opacity .3s,background .2s;pointer-events:none}
+.scroll-top.on{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--rojo)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  nav,nav.solid{padding:1rem 2rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-body{padding:120px 2rem 3rem}
+  .about-section{padding:4rem 2rem}
+  .about-inner{grid-template-columns:1fr;gap:3rem}
+  .about-collage{grid-template-rows:200px 200px}
+  .projects-grid{grid-template-columns:1fr 1fr}
+  .valores-grid{grid-template-columns:repeat(3,1fr)}
+  .donation-section{grid-template-columns:1fr}
+  .donation-content{padding:3rem 2rem}
+  .donation-widget{padding:2.5rem 2rem}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .prensa-grid{grid-template-columns:1fr}
+  .projects-section,.testimonios,.quote-section,.valores-section,.prensa-band{padding:4rem 2rem}
+  .newsletter{padding:3rem 2rem}
+  footer{padding:3rem 2rem 1.5rem}
+  #campaign-counter.active{padding:2.5rem 2rem}
+  .cc-inner{grid-template-columns:1fr;gap:2.5rem}
+  .indicadores-inner{grid-template-columns:repeat(3,1fr)}
+  .dossier-inner{flex-direction:column;align-items:flex-start}
+  .socias-track{animation-duration:18s}
+  .socia-item{width:220px}
+}
+@media(max-width:640px){
+  .hero-title{font-size:2.8rem}
+  .footer-top{grid-template-columns:1fr}
+  .newsletter-form{flex-direction:column}
+  .newsletter-form input{width:100%}
+  .projects-grid{grid-template-columns:1fr}
+  .valores-grid{grid-template-columns:1fr 1fr}
+  .cc-stats{grid-template-columns:1fr 1fr}
+  .indicadores-inner{grid-template-columns:1fr 1fr}
+  .mp-grid,.mp-suscripcion-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar" class="over-bg">
+  <a href="/">
+    <img src="logo_web.png" alt="Amapolas Cooperativa de Viviendas" class="nav-logo-color">
+    <img src="logo_web_neg2.png" alt="Amapolas Cooperativa de Viviendas" class="nav-logo-neg">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/" class="active">Home</a></li>
+    <li class="nav-item has-dropdown">
+      <a href="/nosotras">Nosotras</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Nosotras</span>
+        <a href="/nosotras/genero">Género</a>
+        <a href="/nosotras/sustentabilidad">Hábitat Sustentable</a>
+        <a href="/nosotras/interculturalidad">Interculturalidad</a>
+        <a href="/nosotras/cohousing">Cuidado y Cohousing</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/proyectos">Proyectos</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Proyectos</span>
+        <a href="/proyectos/vivienda">Barrio Amapolas</a>
+        <a href="/proyectos/productivos">Proyectos agroecológicos</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/prensa">Acciones y Prensa</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Acciones y Prensa</span>
+        <a href="/prensa#eventos">Eventos / Charlas / Capacitaciones</a>
+        <a href="/prensa">Prensa</a>
+        <a href="/prensa#kit">Kit de Prensa</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/comunidad">Comunidad</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Comunidad</span>
+        <a href="/comunidad#aliados">Aliados</a>
+        <a href="/comunidad#fundaciones">Fundaciones y Organizaciones</a>
+        <a href="/comunidad#sponsors">Sponsors</a>
+        <a href="/comunidad#donantes">Donantes</a>
+        <a href="/comunidad#comunidad">Comunidad</a>
+      </div>
+    </li>
+    <li class="nav-lang">
+      <a href="?lang=es" class="lang-btn lang-active">ES</a>
+      <span class="lang-sep">/</span>
+      <a href="?lang=en" class="lang-btn">EN</a>
+    </li>
+    <li><a href="#donar" class="cta">Donar ahora</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+  <a href="/" onclick="document.getElementById('mob').classList.remove('open')">Home</a>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Nosotras <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/nosotras" onclick="document.getElementById('mob').classList.remove('open')">Nosotras</a>
+      <a href="/nosotras/genero" onclick="document.getElementById('mob').classList.remove('open')">Género</a>
+      <a href="/nosotras/sustentabilidad" onclick="document.getElementById('mob').classList.remove('open')">Hábitat Sustentable</a>
+      <a href="/nosotras/interculturalidad" onclick="document.getElementById('mob').classList.remove('open')">Interculturalidad</a>
+      <a href="/nosotras/cohousing" onclick="document.getElementById('mob').classList.remove('open')">Cuidado y Cohousing</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Proyectos <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/proyectos" onclick="document.getElementById('mob').classList.remove('open')">Proyectos</a>
+      <a href="/proyectos/vivienda" onclick="document.getElementById('mob').classList.remove('open')">Barrio Amapolas</a>
+      <a href="/proyectos/productivos" onclick="document.getElementById('mob').classList.remove('open')">Proyectos agroecológicos</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Acciones y Prensa <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/prensa#eventos" onclick="document.getElementById('mob').classList.remove('open')">Eventos / Capacitaciones</a>
+      <a href="/prensa" onclick="document.getElementById('mob').classList.remove('open')">Prensa</a>
+      <a href="/prensa#kit" onclick="document.getElementById('mob').classList.remove('open')">Kit de Prensa</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Comunidad <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/comunidad#aliados" onclick="document.getElementById('mob').classList.remove('open')">Aliados</a>
+      <a href="/comunidad#fundaciones" onclick="document.getElementById('mob').classList.remove('open')">Fundaciones y Org.</a>
+      <a href="/comunidad#sponsors" onclick="document.getElementById('mob').classList.remove('open')">Sponsors</a>
+      <a href="/comunidad#donantes" onclick="document.getElementById('mob').classList.remove('open')">Donantes</a>
+    </div>
+  </div>
+  <div class="mob-lang">
+    <a href="?lang=es" class="lang-btn lang-active">ES</a>
+    <span class="lang-sep">/</span>
+    <a href="?lang=en" class="lang-btn">EN</a>
+  </div>
+  <a href="#donar" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--rojo)">Donar ahora</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">
+    <img src="hero7.png" alt="Vista del territorio patagónico donde se desarrolla el proyecto Amapolas en Bariloche" class="hero-bg-img">
+  </div>
+  <div class="hero-overlay-top"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-body">
+    <span class="hero-eyebrow">Cooperativa de Viviendas · Bariloche, Patagonia Argentina</span>
+    <h1 class="hero-title">
+      Construimos un<br>modelo de hábitat<br>
+      <span class="accent">liderado por mujeres</span>
+    </h1>
+    <p class="hero-subtitle">
+      Una respuesta colectiva, feminista y regenerativa a la crisis global de vivienda. Demostramos que es posible construir vivienda, comunidad y autonomía desde la organización colectiva.
+    </p>
+    <div class="hero-actions">
+      <a href="#donar" class="btn-primary-hero">Donar ahora →</a>
+      <a href="/nosotras" class="btn-ghost">Conocé el proyecto →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTADOR DE CAMPAÑA (módulo activable/desactivable) -->
+<!--
+  INSTRUCCIONES DE USO:
+  - Para ACTIVAR durante campaña activa: agregar la clase "active" al div#campaign-counter
+    → <div id="campaign-counter" class="active">
+  - Para DESACTIVAR fuera de campaña: dejar sin la clase "active"
+    → <div id="campaign-counter">
+  - Actualizar los valores data-raised, data-goal y data-donors con los datos de GlobalGiving
+-->
+<div id="campaign-counter"
+     data-raised="4200"
+     data-goal="15000"
+     data-donors="87">
+  <div class="cc-inner">
+    <div class="cc-stats">
+      <div class="cc-stat">
+        <div class="cc-stat-num" id="cc-raised">USD 0</div>
+        <div class="cc-stat-label">Recaudado hasta ahora</div>
+      </div>
+      <div class="cc-stat">
+        <div class="cc-stat-num" id="cc-remaining">USD 0</div>
+        <div class="cc-stat-label">Para alcanzar el objetivo</div>
+      </div>
+      <div class="cc-stat">
+        <div class="cc-stat-num" id="cc-donors">0</div>
+        <div class="cc-stat-label">Personas que ya donaron</div>
+      </div>
+    </div>
+    <div class="cc-progress-wrap">
+      <p class="cc-eyebrow">Campaña activa en GlobalGiving</p>
+      <h2 class="cc-title">Ayudanos a llegar<br>a la meta</h2>
+      <div class="cc-bar-bg">
+        <div class="cc-bar-fill" id="cc-bar" style="width:0%"></div>
+      </div>
+      <div class="cc-bar-labels">
+        <span id="cc-pct">0%</span>
+        <span>Meta: <strong id="cc-goal-label">USD 0</strong></span>
+      </div>
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="btn-gg">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Donar en GlobalGiving
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="nosotras" class="about-section">
+  <div class="about-inner">
+    <div class="about-collage reveal">
+      <div class="collage-img tall">
+        <img src="integrantes.png" alt="Socias de Amapolas reunidas en asamblea cooperativa en Bariloche" onerror="this.style.display='none'">
+        <div class="collage-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Socias de Amapolas</span>
+        </div>
+      </div>
+      <div class="collage-img">
+        <img src="plantas.jpg" alt="Proyecto de plantas nativas patagónicas de la Cooperativa Amapolas" onerror="this.style.display='none'">
+        <div class="collage-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Plantas nativas</span>
+        </div>
+      </div>
+      <div class="collage-img">
+        <img src="cultiva.webp" alt="Proyecto agroecológico en territorio de la Comunidad Mapuche Tambo Báez" onerror="this.style.display='none'">
+        <div class="collage-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Proyecto agroecológico</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <p class="section-eyebrow">Quiénes somos</p>
+      <h2 class="section-title">Un modelo integral<br>de hábitat comunitario</h2>
+      <p class="section-body">Amapolas no es solo una cooperativa de vivienda. Es un modelo que articula género, territorio, sostenibilidad y organización colectiva como respuesta a la crisis habitacional contemporánea, con potencial de replicación en otros territorios.</p>
+      <div class="pillar-list">
+        <div class="pillar">
+          <span class="pillar-number">01</span>
+          <div class="pillar-text"><h4>Vivienda con perspectiva feminista</h4><p>Construcción cooperativa de viviendas con bioconstrucción y diseño bioclimático, conducida íntegramente por mujeres y disidencias.</p></div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-number">02</span>
+          <div class="pillar-text"><h4>Proyectos agroecológicos</h4><p>Apicultura, cultivo de hongos silvestres y producción de plantas nativas como fuente de ingreso autónomo y vínculo con el territorio patagónico.</p></div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-number">03</span>
+          <div class="pillar-text"><h4>Modelo replicable</h4><p>Un prototipo transferible, adaptable a otros contextos territoriales. El argumento más potente para fondos que buscan impacto a escala.</p></div>
+        </div>
+        <a href="/nosotras" class="btn-ghost" style="border-color:rgba(36,37,46,.2);color:var(--azul);margin-top:2rem;display:inline-flex">Ver nuestra historia completa →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section reveal">
+  <p class="quote-text">"Demostramos que es posible construir vivienda, comunidad y autonomía desde la organización colectiva, con potencial de adaptación y replicabilidad en otros territorios."</p>
+  <p class="quote-attr"><strong>Amapolas</strong> — Cooperativa de Viviendas · Bariloche, Patagonia Argentina</p>
+</div>
+
+<!-- INDICADORES -->
+<div class="indicadores-section reveal">
+  <div class="indicadores-inner">
+    <div class="indicador">
+      <div class="indicador-num">4+</div>
+      <div class="indicador-label">Años de trabajo cooperativo</div>
+    </div>
+    <div class="indicador">
+      <div class="indicador-num">30+</div>
+      <div class="indicador-label">Mujeres y disidencias involucradas</div>
+    </div>
+    <div class="indicador">
+      <div class="indicador-num">100%</div>
+      <div class="indicador-label">Conducción femenina</div>
+    </div>
+    <div class="indicador">
+      <div class="indicador-num">7</div>
+      <div class="indicador-label">ODS de la Agenda 2030 alineados</div>
+    </div>
+    <div class="indicador">
+      <div class="indicador-num">3</div>
+      <div class="indicador-label">Ciclos consecutivos de financiamiento internacional</div>
+    </div>
+  </div>
+</div>
+
+<!-- DOSSIER -->
+<div class="dossier-section reveal">
+  <div class="dossier-inner">
+    <div class="dossier-text">
+      <p class="label">Documentación institucional</p>
+      <h2>Conocé el proyecto en profundidad</h2>
+      <p>Dossier institucional completo disponible en español e inglés para fondos, aliados y medios de comunicación.</p>
+    </div>
+    <div class="dossier-btns">
+      <a href="/dossier-amapolas-es.pdf" target="_blank" rel="noopener" class="btn-dossier es">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar dossier · ES
+      </a>
+      <a href="/dossier-amapolas-en.pdf" target="_blank" rel="noopener" class="btn-dossier en">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download dossier · EN
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="projects-section">
+  <div class="projects-header reveal">
+    <p class="section-eyebrow">Lo que hacemos</p>
+    <h2 class="section-title">Proyectos que<br>transforman vidas</h2>
+  </div>
+  <div class="projects-grid reveal">
+
+    <a href="/proyectos/vivienda" class="project-card">
+      <div class="project-card-image color-azul">
+        <img src="/proyectos/vivienda.jpeg" alt="Barrio Amapolas: construcción cooperativa de viviendas en Bariloche con bioconstrucción y diseño bioclimático">
+        <span class="project-card-image-placeholder">Barrio Amapolas</span>
+      </div>
+      <div class="project-card-body">
+        <p class="project-num">Proyecto principal</p>
+        <h3>Barrio Amapolas</h3>
+        <p>Modelo de cohousing feminista con bioconstrucción y espacios de cuidado colectivo diseñados como infraestructura, no como agregado.</p>
+        <span class="project-link">Ver proyecto →</span>
+      </div>
+    </a>
+
+    <a href="/proyectos/apicultura" class="project-card">
+      <div class="project-card-image color-verde">
+        <img src="/proyectos/apicultura.jpg" alt="Apiario colectivo de Amapolas en territorio de la Comunidad Mapuche Tambo Báez, Bariloche">
+        <span class="project-card-image-placeholder">Apiario colectivo</span>
+      </div>
+      <div class="project-card-body">
+        <p class="project-num verde">Proyecto productivo</p>
+        <h3>Apiario Colectivo</h3>
+        <p>Miel artesanal patagónica en territorio de la Comunidad Mapuche Tambo Báez. 5 colmenas activas. Economía regenerativa y soberanía alimentaria.</p>
+        <span class="project-link">Ver proyecto →</span>
+      </div>
+    </a>
+
+    <a href="/proyectos/plantas-nativas" class="project-card">
+      <div class="project-card-image color-rojo">
+        <img src="/proyectos/productivos_hero.jpg" alt="Vivero de plantas nativas patagónicas de la Cooperativa Amapolas en Bariloche">
+        <span class="project-card-image-placeholder">Plantas nativas</span>
+      </div>
+      <div class="project-card-body">
+        <p class="project-num">Proyecto productivo</p>
+        <h3>Plantas Nativas</h3>
+        <p>Reproducción de especies nativas patagónicas. Formación en compostaje y soberanía alimentaria. Vínculo con el territorio y la biodiversidad local.</p>
+        <span class="project-link">Ver proyecto →</span>
+      </div>
+    </a>
+
+    <a href="/proyectos/hongos-silvestres" class="project-card">
+      <div class="project-card-image color-dark">
+        <img src="/proyectos/plantas.jpg" alt="Cultivo de hongos silvestres en Tambo Báez, acompañado técnicamente por CIEFAP">
+        <span class="project-card-image-placeholder">Hongos silvestres</span>
+      </div>
+      <div class="project-card-body">
+        <p class="project-num">Proyecto productivo</p>
+        <h3>Hongos Silvestres</h3>
+        <p>Cultivo de gírgolas en Tambo Báez con acompañamiento técnico de CIEFAP. Segunda etapa en curso. Economía regenerativa con potencial de escala.</p>
+        <span class="project-link">Ver proyecto →</span>
+      </div>
+    </a>
+
+  </div>
+  <div style="margin-top:2rem" class="reveal">
+    <a href="/proyectos" class="prensa-cta">Ver todos los proyectos →</a>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="valores-section">
+  <div class="reveal">
+    <p class="section-eyebrow" style="color:rgba(255,255,255,.35)">Lo que nos guía</p>
+    <h2 class="section-title" style="color:white">Nuestros valores</h2>
+  </div>
+  <div class="valores-grid reveal">
+    <div class="valor-item">
+      <p class="valor-num">01</p>
+      <h4>Cooperación</h4>
+      <p>Trabajo colectivo por sobre la competencia individual. Economía solidaria como práctica cotidiana.</p>
+    </div>
+    <div class="valor-item">
+      <p class="valor-num">02</p>
+      <h4>Sustentabilidad</h4>
+      <p>Equilibrio entre necesidades humanas, respeto biocéntrico y reproducción de la vida en todas sus formas.</p>
+    </div>
+    <div class="valor-item">
+      <p class="valor-num">03</p>
+      <h4>Autonomía</h4>
+      <p>Capacidad de decidir sobre nuestros cuerpos, nuestro trabajo y nuestra vivienda.</p>
+    </div>
+    <div class="valor-item">
+      <p class="valor-num">04</p>
+      <h4>Cuidado</h4>
+      <p>Del entorno natural, de quienes habitamos el barrio, de las relaciones que sostenemos.</p>
+    </div>
+    <div class="valor-item">
+      <p class="valor-num">05</p>
+      <h4>Justicia territorial</h4>
+      <p>Reconocimiento de la preexistencia mapuche, defensa del hábitat como derecho y distribución equitativa de la tierra.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DONACIÓN -->
+<section id="donar" class="donation-section">
+  <div class="donation-content reveal">
+    <p class="section-eyebrow">Tu aporte importa</p>
+    <h2 class="section-title">Cada donación<br>es un ladrillo más</h2>
+    <p class="section-body">Tu aporte financia materiales de construcción, herramientas y el trabajo de mujeres que construyen su propio futuro en la Patagonia. Cooperativa con personería jurídica INAES N°63884.</p>
+    <div class="donation-impacts">
+      <div class="donation-impact-row"><strong>USD 10</strong> materiales para una jornada de bioconstrucción</div>
+      <div class="donation-impact-row"><strong>USD 50</strong> un metro cuadrado construido</div>
+      <div class="donation-impact-row"><strong>USD 200</strong> equipamiento técnico o formación</div>
+    </div>
+  </div>
+  <div class="donation-widget">
+    <p class="widget-label">Donación en GlobalGiving</p>
+    <p class="widget-sublabel">Plataforma internacional · Donaciones verificadas</p>
+    <div class="mp-grid">
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="mp-btn">
+        <span class="mp-amount">USD 10</span>
+        <span class="mp-impact">Materiales para<br>bioconstrucción</span>
+      </a>
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="mp-btn featured">
+        <span class="mp-amount">USD 50</span>
+        <span class="mp-impact">Un m² construido<br>con bioconstrucción</span>
+      </a>
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="mp-btn">
+        <span class="mp-amount">USD 100</span>
+        <span class="mp-impact">Financia proyectos<br>agroecológicos</span>
+      </a>
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="mp-btn">
+        <span class="mp-amount">USD 200</span>
+        <span class="mp-impact">Equipamiento<br>o formación</span>
+      </a>
+    </div>
+    <div class="mp-divider"><span>o elegí otro monto</span></div>
+    <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="mp-otro">Donación de otro monto en GlobalGiving →</a>
+    <p class="mp-suscripcion-label">Donación mensual recurrente</p>
+    <div class="mp-suscripcion-grid">
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="mp-sus-btn">
+        <span class="mp-amount">USD 10</span>
+        <span class="mp-freq">por mes</span>
+        <span class="mp-impact">Financia proyectos<br>productivos</span>
+      </a>
+      <a href="https://www.globalgiving.org" target="_blank" rel="noopener" class="mp-sus-btn">
+        <span class="mp-amount">USD 50</span>
+        <span class="mp-freq">por mes</span>
+        <span class="mp-impact">Avanza la obra<br>cada mes</span>
+      </a>
+    </div>
+    <p class="mp-secure">Donaciones trazables · Personería jurídica INAES N°63884</p>
+  </div>
+</section>
+
+<!-- SOCIAS -->
+<section id="comunidad" class="testimonios">
+  <div class="testimonios-header">
+    <p class="section-eyebrow reveal">Voces de la cooperativa</p>
+    <h2 class="section-title reveal">Ellas construyen<br>este sueño</h2>
+  </div>
+  <div class="socias-track-wrap">
+    <div class="socias-track">
+      <div class="socia-item">
+        <img src="/chicas/1.jpg" alt="Julieta Linares, presidenta y socia fundadora de Amapolas Cooperativa de Viviendas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">JL</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">Julieta Linares</div>
+          <div class="socia-hover-role">Presidenta · Socia fundadora</div>
+          <p class="socia-hover-quote">"Construimos la posibilidad de un futuro propio para mujeres en la Patagonia."</p>
+        </div>
+      </div>
+      <div class="socia-item">
+        <img src="/chicas/2.jpg" alt="Martina Cianis, secretaria de Amapolas Cooperativa de Viviendas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">MC</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">Martina Cianis</div>
+          <div class="socia-hover-role">Secretaria</div>
+          <p class="socia-hover-quote">"Organizadas podemos lograr lo que parecía inalcanzable."</p>
+        </div>
+      </div>
+      <div class="socia-item">
+        <img src="/chicas/3.webp" alt="Andrea Duminao, tesorera de Amapolas Cooperativa de Viviendas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">AD</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">Andrea Duminao</div>
+          <div class="socia-hover-role">Tesorera</div>
+          <p class="socia-hover-quote">"La salida es colectiva. Nadie se salva sola."</p>
+        </div>
+      </div>
+      <div class="socia-item">
+        <img src="/chicas/5.webp" alt="María Laura, socia fundadora de Amapolas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">ML</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">María Laura</div>
+          <div class="socia-hover-role">Socia fundadora</div>
+          <p class="socia-hover-quote">"Es saber que mis hijas van a crecer en un hogar seguro."</p>
+        </div>
+      </div>
+      <div class="socia-item">
+        <img src="/chicas/6.webp" alt="Rosa Carmen, socia activa de Amapolas desde hace 3 años">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">RC</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">Rosa Carmen</div>
+          <div class="socia-hover-role">Socia activa · 3 años</div>
+          <p class="socia-hover-quote">"Amapolas me mostró que juntas podemos todo."</p>
+        </div>
+      </div>
+      <!-- Duplicado para loop continuo -->
+      <div class="socia-item" aria-hidden="true">
+        <img src="/chicas/1.jpg" alt="Julieta Linares, presidenta de Amapolas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">JL</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">Julieta Linares</div>
+          <div class="socia-hover-role">Presidenta · Socia fundadora</div>
+          <p class="socia-hover-quote">"Construimos la posibilidad de un futuro propio para mujeres en la Patagonia."</p>
+        </div>
+      </div>
+      <div class="socia-item" aria-hidden="true">
+        <img src="/chicas/2.jpg" alt="Martina Cianis, secretaria de Amapolas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">MC</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">Martina Cianis</div>
+          <div class="socia-hover-role">Secretaria</div>
+          <p class="socia-hover-quote">"Organizadas podemos lograr lo que parecía inalcanzable."</p>
+        </div>
+      </div>
+      <div class="socia-item" aria-hidden="true">
+        <img src="/chicas/3.webp" alt="Andrea Duminao, tesorera de Amapolas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">AD</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">Andrea Duminao</div>
+          <div class="socia-hover-role">Tesorera</div>
+          <p class="socia-hover-quote">"La salida es colectiva. Nadie se salva sola."</p>
+        </div>
+      </div>
+      <div class="socia-item" aria-hidden="true">
+        <img src="/chicas/5.webp" alt="María Laura, socia fundadora de Amapolas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">ML</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">María Laura</div>
+          <div class="socia-hover-role">Socia fundadora</div>
+          <p class="socia-hover-quote">"Es saber que mis hijas van a crecer en un hogar seguro."</p>
+        </div>
+      </div>
+      <div class="socia-item" aria-hidden="true">
+        <img src="/chicas/6.webp" alt="Rosa Carmen, socia activa de Amapolas">
+        <div class="socia-placeholder"><span class="socia-placeholder-initials">RC</span></div>
+        <div class="socia-hover">
+          <div class="socia-hover-name">Rosa Carmen</div>
+          <div class="socia-hover-role">Socia activa · 3 años</div>
+          <p class="socia-hover-quote">"Amapolas me mostró que juntas podemos todo."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRENSA BAND -->
+<section id="prensa" class="prensa-band">
+  <div class="reveal">
+    <p class="section-eyebrow">En los medios</p>
+    <h2 class="section-title">Nos escucharon,<br>nos leyeron</h2>
+  </div>
+  <div class="prensa-grid reveal">
+    <div class="prensa-item">
+      <span class="prensa-source">Radio Nacional Bariloche</span>
+      <h4>Entrevista sobre hábitat, género y la cooperativa Amapolas</h4>
+      <p>La presidenta Julieta Linares habló sobre el proyecto cooperativo y el acceso a la vivienda para mujeres y disidencias en la Patagonia.</p>
+      <a href="https://www.4shared.com/s/fkuWJQSO9ku" target="_blank" rel="noopener">Escuchar →</a>
+    </div>
+    <div class="prensa-item">
+      <span class="prensa-source">ANBariloche.com.ar</span>
+      <h4>Encuentro internacional sobre derecho al hábitat y bienes comunes</h4>
+      <p>Cobertura del primer encuentro internacional autogestionario de diseño participativo organizado junto a HIC y organizaciones de toda Latinoamérica.</p>
+      <a href="https://www.anbariloche.com.ar/noticias/2024/11/13/96117-invitan-al-encuentro-internacional-sobre-derecho-al-habitat-y-los-bienes-comunes" target="_blank" rel="noopener">Leer nota →</a>
+    </div>
+    <div class="prensa-item">
+      <span class="prensa-source">Economía Solidaria</span>
+      <h4>Amapolas se integra a la red latinoamericana TEC IN HAB</h4>
+      <p>La cooperativa se une a la red que reúne organizaciones y profesionales de Latinoamérica para el intercambio de conocimientos sobre hábitat y vivienda.</p>
+      <a href="https://economiasolidaria.com.ar/rio-negro-una-cooperativa-de-bariloche-se-integra-a-una-red-latinoamericana-sobre-diseno-del-habitat/" target="_blank" rel="noopener">Leer nota →</a>
+    </div>
+  </div>
+  <a href="/prensa" class="prensa-cta reveal">Ver toda la cobertura y acciones →</a>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter reveal">
+  <h3>Recibí novedades de la cooperativa</h3>
+  <div class="newsletter-form">
+    <input type="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico">
+    <button type="button">Suscribirme</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="logo_amapolas.png" alt="Amapolas Cooperativa de Viviendas" class="foot-logo">
+      <p class="foot-desc">Una cooperativa de viviendas conducida por mujeres y disidencias en la Patagonia argentina. Construimos autonomía y comunidad desde Bariloche.</p>
+    </div>
+    <div class="foot-col">
+      <h5>La cooperativa</h5>
+      <ul>
+        <li><a href="/nosotras">Quiénes somos</a></li>
+        <li><a href="/proyectos">Proyectos</a></li>
+        <li><a href="/comunidad">Comunidad</a></li>
+        <li><a href="/prensa">Prensa</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Colaborar</h5>
+      <ul>
+        <li><a href="#donar">Donar</a></li>
+        <li><a href="/comunidad#voluntariado">Voluntariado</a></li>
+        <li><a href="/comunidad#fundaciones">Alianzas</a></li>
+        <li><a href="/prensa#kit">Kit de Prensa</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Contacto</h5>
+      <ul>
+        <li><a href="mailto:contacto@amapolas.coop">contacto@amapolas.coop</a></li>
+        <li><a href="mailto:prensa@amapolas.coop">prensa@amapolas.coop</a></li>
+        <li><a href="#">Bariloche, Río Negro</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Amapolas Cooperativa de Viviendas Ltda. · INAES N°63884 · Bariloche, Río Negro</p>
+    <div class="foot-social">
+      <a href="#" title="Instagram" aria-label="Instagram">ig</a>
+      <a href="#" title="Facebook" aria-label="Facebook">fb</a>
+      <a href="#" title="WhatsApp" aria-label="WhatsApp">wa</a>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="stop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<script>
+// NAV
+const navbar = document.getElementById('navbar');
+function updateNav() {
+  const past = window.scrollY > 40;
+  navbar.classList.toggle('over-bg', !past);
+  navbar.classList.toggle('solid', past);
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+
+window.addEventListener('scroll', () => {
+  document.getElementById('stop').classList.toggle('on', window.scrollY > 500);
+}, {passive:true});
+
+document.getElementById('ham').addEventListener('click', () =>
+  document.getElementById('mob').classList.add('open')
+);
+
+function toggleMobAcc(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+// REVEAL
+const revealIO = new IntersectionObserver(
+  entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+  {threshold: 0.08}
+);
+document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+
+// CONTADOR DE CAMPAÑA
+// Lee los valores desde los atributos data- del elemento #campaign-counter
+// Para actualizar: cambiar data-raised, data-goal, data-donors en el HTML
+// Para activar/desactivar: agregar/quitar la clase "active" al div#campaign-counter
+(function() {
+  const el = document.getElementById('campaign-counter');
+  if (!el || !el.classList.contains('active')) return;
+
+  const raised  = parseFloat(el.dataset.raised)  || 0;
+  const goal    = parseFloat(el.dataset.goal)     || 1;
+  const donors  = parseInt(el.dataset.donors)     || 0;
+  const pct     = Math.min(100, Math.round((raised / goal) * 100));
+  const remaining = Math.max(0, goal - raised);
+
+  function fmtUSD(n) {
+    return 'USD ' + n.toLocaleString('es-AR');
+  }
+
+  document.getElementById('cc-raised').textContent    = fmtUSD(raised);
+  document.getElementById('cc-remaining').textContent = fmtUSD(remaining);
+  document.getElementById('cc-donors').textContent    = donors;
+  document.getElementById('cc-goal-label').textContent = fmtUSD(goal);
+  document.getElementById('cc-pct').textContent       = pct + '%';
+
+  // Animar barra
+  setTimeout(() => {
+    document.getElementById('cc-bar').style.width = pct + '%';
+  }, 300);
+})();
+</script>
+
+<!-- NEWSLETTER POPUP -->
+<div id="nl-overlay" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(36,37,46,.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;">
+  <div id="nl-box" style="position:relative;background:#eae9e2;border-radius:4px;max-width:480px;width:calc(100% - 2rem);padding:3rem 2.5rem;text-align:center;">
+    <button id="nl-close" aria-label="Cerrar" style="position:absolute;top:1rem;right:1.25rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#24252e;opacity:.5;line-height:1;">×</button>
+    <p style="font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#376135;margin-bottom:.5rem;">Comunidad Amapolas</p>
+    <h2 style="font-family:'DM Sans',sans-serif;font-size:1.5rem;font-weight:800;line-height:1.2;color:#24252e;margin-bottom:1rem;">¿Querés seguir el proyecto?</h2>
+    <p style="font-family:'DM Sans',sans-serif;font-size:.95rem;color:#24252e;opacity:.75;margin-bottom:1.75rem;line-height:1.5;">Novedades del barrio, avances del proyecto y convocatorias, directo a tu correo.</p>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;">
+      <input type="email" placeholder="tu@correo.com" aria-label="Correo electrónico"
+        style="flex:1;min-width:200px;padding:.75rem 1rem;border:1.5px solid rgba(36,37,46,.2);border-radius:2px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:#fff;color:#24252e;outline:none;">
+      <button style="background:#ed694b;color:#fff;border:none;padding:.75rem 1.5rem;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;white-space:nowrap;"
+        onmouseover="this.style.background='#d4533a'" onmouseout="this.style.background='#ed694b'">
+        Suscribirme
+      </button>
+    </div>
+    <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;color:#24252e;opacity:.45;margin-top:1rem;">Sin spam. Podés darte de baja cuando quieras.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay = document.getElementById('nl-overlay');
+  var closeBtn = document.getElementById('nl-close');
+  function showPopup(){ overlay.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+  function hidePopup(){ overlay.style.display = 'none'; document.body.style.overflow = ''; }
+  setTimeout(showPopup, 5000);
+  closeBtn.addEventListener('click', hidePopup);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) hidePopup(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') hidePopup(); });
+})();
+</script>
+</body>
+</html>
