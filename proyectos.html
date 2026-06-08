@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos — Amapolas Cooperativa de Viviendas · Bariloche</title>
+<meta name="description" content="Proyectos de la Cooperativa Amapolas: Barrio Amapolas (cohousing feminista con bioconstrucción) y proyectos agroecológicos en Patagonia argentina. Modelo de hábitat comunitario replicable.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#24252e;--rojo:#ed694b;--verde:#376135;--crema:#eae9e2;--font:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--crema);color:var(--azul);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+ul{list-style:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;transition:background .4s,box-shadow .4s,padding .3s}
+nav.solid{background:var(--crema);box-shadow:0 1px 0 rgba(36,37,46,.1);padding:1rem 4rem}
+nav.over-bg .nav-logo-color{display:none}
+nav.over-bg .nav-logo-neg{display:block}
+nav.solid .nav-logo-color{display:block}
+nav.solid .nav-logo-neg{display:none}
+.nav-logo-color,.nav-logo-neg{height:36px;display:block}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:.875rem;font-weight:600;letter-spacing:.03em;opacity:.75;transition:opacity .2s,color .4s}
+nav.over-bg .nav-links a{color:white}
+nav.solid .nav-links a{color:var(--azul)}
+.nav-links a:hover{opacity:1}
+nav.solid .nav-links a.active{opacity:1;border-bottom:2px solid var(--rojo);padding-bottom:2px}
+nav.over-bg .nav-links a.active{opacity:1}
+.nav-links .cta{opacity:1!important;padding:.6rem 1.5rem;border-radius:2px;transition:background .2s,color .2s;border:none!important}
+nav.over-bg .nav-links .cta{background:white;color:var(--rojo)!important}
+nav.over-bg .nav-links .cta:hover{background:var(--crema)}
+nav.solid .nav-links .cta{background:var(--rojo);color:#fff!important}
+nav.solid .nav-links .cta:hover{background:#d4533a}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;transition:background .4s}
+nav.over-bg .hamburger span{background:white}
+nav.solid .hamburger span{background:var(--azul)}
+.mobile-overlay{display:none;position:fixed;inset:0;z-index:98;background:var(--azul);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;overflow-y:auto;padding:4rem 2rem}
+.mobile-overlay.open{display:flex}
+.mobile-overlay a{font-size:1.8rem;font-weight:800;color:white;letter-spacing:-.02em;transition:color .2s}
+.mobile-overlay a:hover{color:var(--rojo)}
+.mob-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;font-size:1.8rem;cursor:pointer;color:white}
+.mob-accordion{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.mob-acc-btn{background:none;border:none;cursor:pointer;font-family:var(--font);font-size:1.8rem;font-weight:800;color:white;letter-spacing:-.02em;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.mob-acc-btn:hover{color:var(--rojo)}
+.mob-acc-arrow{font-size:1rem;transition:transform .25s;display:inline-block}
+.mob-acc-btn.open .mob-acc-arrow{transform:rotate(180deg)}
+.mob-acc-panel{display:none;flex-direction:column;align-items:center;gap:.6rem;padding:.5rem 0}
+.mob-acc-panel.open{display:flex}
+.mob-acc-panel a{font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:-.01em;transition:color .2s}
+.mob-acc-panel a:hover{color:white}
+.nav-item{position:relative}
+.nav-dropdown{display:none;position:absolute;top:100%;padding-top:.8rem;left:50%;transform:translateX(-50%);background:white;border-radius:3px;box-shadow:0 8px 32px rgba(36,37,46,.14);min-width:220px;overflow:hidden;z-index:200}
+.nav-item:hover .nav-dropdown{display:block}
+.nav-dropdown a{display:flex;align-items:center;gap:.8rem;padding:.85rem 1.2rem;font-size:.82rem;font-weight:600;color:var(--azul)!important;opacity:1!important;border-bottom:1px solid rgba(36,37,46,.06);transition:background .15s}
+.nav-dropdown a:last-child{border-bottom:none}
+.nav-dropdown a:hover{background:var(--crema)}
+.nav-dropdown-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.7rem 1.2rem .3rem;color:rgba(36,37,46,.3);display:block}
+.has-dropdown>a::after{content:'▾';font-size:.65rem;margin-left:.3rem;opacity:.5;vertical-align:middle}
+.nav-lang{display:flex;align-items:center;gap:.2rem}
+.lang-btn{font-size:.72rem!important;font-weight:700;letter-spacing:.1em;opacity:.38!important;transition:opacity .2s}
+.lang-btn:hover,.lang-btn.lang-active{opacity:1!important}
+.lang-sep{font-size:.65rem;opacity:.2}
+nav.over-bg .lang-btn{color:white}
+nav.solid .lang-btn{color:var(--azul)}
+.mob-lang{display:flex;align-items:center;gap:.4rem}
+.mob-lang .lang-btn{font-size:1rem!important;font-weight:700;color:rgba(255,255,255,.4)}
+.mob-lang .lang-btn.lang-active{color:white;opacity:1!important}
+.mob-lang .lang-sep{color:rgba(255,255,255,.2);font-size:.9rem}
+
+/* HERO */
+.hero{background:var(--azul);min-height:68vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(237,105,75,.08) 0%,transparent 55%);pointer-events:none}
+.hero-grid-deco{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.hero-body{position:relative;z-index:2;padding:130px 4rem 4rem;max-width:860px}
+.hero-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2rem}
+.hero-breadcrumb a{color:rgba(255,255,255,.3);transition:color .2s}
+.hero-breadcrumb a:hover{color:white}
+.hero-breadcrumb span{color:rgba(255,255,255,.15)}
+.hero-title{font-size:clamp(3rem,5.5vw,6rem);font-weight:800;line-height:.93;letter-spacing:-.04em;color:white;margin-bottom:2rem}
+.hero-title .accent{color:var(--rojo)}
+.hero-subtitle{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,.5);max-width:540px}
+.hero-bottom{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.08)}
+
+/* SECCIÓN BARRIO */
+.section-barrio{background:var(--crema);padding:5rem 4rem 0}
+.section-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(36,37,46,.35);margin-bottom:1.8rem;display:block}
+
+.featured-card{display:grid;grid-template-columns:1fr 1fr;border-radius:3px;overflow:hidden;background:white;text-decoration:none;color:var(--azul);transition:box-shadow .25s}
+.featured-card:hover{box-shadow:0 20px 56px rgba(36,37,46,.13)}
+.featured-card-image{min-height:460px;background:var(--azul);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.featured-card-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.featured-card-image-placeholder{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+.featured-card-body{padding:3.5rem;display:flex;flex-direction:column;justify-content:center}
+.featured-card-cat{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rojo);margin-bottom:.9rem}
+.featured-card-title{font-size:clamp(1.8rem,2.4vw,2.8rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:1.2rem}
+.featured-card-desc{font-size:.95rem;line-height:1.8;color:rgba(36,37,46,.55);margin-bottom:2.2rem;flex:1}
+.featured-card-link{font-size:.82rem;font-weight:700;color:var(--azul);display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s,color .2s;margin-top:auto}
+.featured-card:hover .featured-card-link{gap:.7rem;color:var(--rojo)}
+
+/* PILLS DE CARACTERÍSTICAS */
+.featured-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.featured-pill{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:.3rem .75rem;background:rgba(237,105,75,.08);color:var(--rojo);border-radius:2px}
+
+/* SECCIÓN AGRO */
+.section-agro{background:var(--crema);padding:3rem 4rem 6rem}
+.agro-card{display:grid;grid-template-columns:1fr 1fr;border-radius:3px;overflow:hidden;text-decoration:none;transition:box-shadow .25s;background:var(--verde)}
+.agro-card:hover{box-shadow:0 20px 56px rgba(36,37,46,.16)}
+.agro-card-body{padding:3.5rem;display:flex;flex-direction:column;justify-content:center}
+.agro-card-cat{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.9rem}
+.agro-card-title{font-size:clamp(1.4rem,1.8vw,2rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:white;margin-bottom:1rem}
+.agro-card-desc{font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.55);margin-bottom:2rem;flex:1}
+.agro-card-link{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.7);display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s,color .2s}
+.agro-card:hover .agro-card-link{gap:.7rem;color:white}
+.agro-card-tags{grid-column:2;background:rgba(0,0,0,.18);display:flex;flex-direction:column;justify-content:center;gap:1.2rem;padding:3.5rem}
+.agro-tag{display:flex;align-items:center;gap:.9rem}
+.agro-tag-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);flex-shrink:0}
+.agro-tag-label{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.01em}
+
+/* INFO COMPLEMENTARIA */
+.info-complement{background:var(--crema);padding:5rem 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
+.info-block h4{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(36,37,46,.45);margin-bottom:1.2rem}
+.info-block p{font-size:.92rem;line-height:1.78;color:var(--azul)}
+.info-block ul{display:flex;flex-direction:column;gap:.55rem}
+.info-block ul li{font-size:.9rem;color:var(--azul);padding-left:1.1rem;position:relative;line-height:1.5}
+.info-block ul li::before{content:'—';position:absolute;left:0;color:var(--rojo);font-weight:700}
+
+/* DONAR CTA */
+.donar-cta{background:var(--rojo);padding:5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.donar-cta-text .eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:1rem}
+.donar-cta-text h2{font-size:clamp(2rem,3vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;color:white;margin-bottom:1.2rem}
+.donar-cta-text p{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.6)}
+.donar-cta-actions{display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:white;color:var(--rojo);padding:1rem 2.2rem;border-radius:2px;font-weight:800;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-outline-white{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid rgba(255,255,255,.3);color:white;padding:.9rem 2rem;border-radius:2px;font-weight:600;font-size:.88rem;transition:border-color .2s,background .2s}
+.btn-outline-white:hover{border-color:white;background:rgba(255,255,255,.08)}
+.donar-note{font-size:.68rem;color:rgba(255,255,255,.28);letter-spacing:.04em}
+
+/* FOOTER */
+footer{background:var(--azul);color:white;padding:4rem 4rem 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+footer img.foot-logo{height:30px;margin-bottom:1.2rem;display:block;filter:brightness(0) invert(1)}
+.foot-desc{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.3);max-width:260px}
+.foot-col h5{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:1.2rem}
+.foot-col li{margin-bottom:.65rem}
+.foot-col a{color:rgba(255,255,255,.5);font-size:.85rem;font-weight:500;transition:color .2s}
+.foot-col a:hover{color:var(--rojo)}
+.footer-bottom{padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.18)}
+.foot-social{display:flex;gap:.8rem}
+.foot-social a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:.7rem;font-weight:700;transition:all .2s}
+.foot-social a:hover{border-color:var(--rojo);color:white;background:var(--rojo)}
+.scroll-top{position:fixed;bottom:2rem;right:2rem;z-index:50;width:44px;height:44px;background:var(--azul);color:white;border:none;border-radius:50%;cursor:pointer;font-size:1rem;opacity:0;transition:opacity .3s,background .2s;pointer-events:none}
+.scroll-top.on{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--rojo)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:1100px){
+  nav,nav.solid{padding:1rem 2rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-body{padding:100px 2rem 3rem}
+  .section-barrio{padding:4rem 2rem 0}
+  .section-agro{padding:2rem 2rem 5rem}
+  .featured-card{grid-template-columns:1fr}
+  .featured-card-image{min-height:280px}
+  .agro-card{grid-template-columns:1fr}
+  .agro-card-tags{grid-column:1}
+  .info-complement{padding:4rem 2rem;grid-template-columns:1fr;gap:2rem}
+  .donar-cta{grid-template-columns:1fr;gap:2rem;padding:4rem 2rem}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  footer{padding:3rem 2rem 1.5rem}
+}
+@media(max-width:640px){
+  .featured-card-body{padding:2rem}
+  .agro-card-body,.agro-card-tags{padding:2rem}
+  .footer-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar" class="over-bg">
+  <a href="/">
+    <img src="/logo_web.png" alt="Amapolas Cooperativa de Viviendas" class="nav-logo-color">
+    <img src="/logo_web_neg2.png" alt="Amapolas Cooperativa de Viviendas" class="nav-logo-neg">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li class="nav-item has-dropdown">
+      <a href="/nosotras">Nosotras</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Nosotras</span>
+        <a href="/nosotras/genero">Género</a>
+        <a href="/nosotras/sustentabilidad">Hábitat Sustentable</a>
+        <a href="/nosotras/interculturalidad">Interculturalidad</a>
+        <a href="/nosotras/cohousing">Cuidado y Cohousing</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/proyectos" class="active">Proyectos</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Proyectos</span>
+        <a href="/proyectos/vivienda">Barrio Amapolas</a>
+        <a href="/proyectos/productivos">Proyectos agroecológicos</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/prensa">Acciones y Prensa</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Acciones y Prensa</span>
+        <a href="/prensa#eventos">Eventos / Charlas / Capacitaciones</a>
+        <a href="/prensa">Prensa</a>
+        <a href="/prensa#kit">Kit de Prensa</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/comunidad">Comunidad</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label">Comunidad</span>
+        <a href="/comunidad#aliados">Aliados</a>
+        <a href="/comunidad#fundaciones">Fundaciones y Organizaciones</a>
+        <a href="/comunidad#sponsors">Sponsors</a>
+        <a href="/comunidad#donantes">Donantes</a>
+        <a href="/comunidad#comunidad">Comunidad</a>
+      </div>
+    </li>
+    <li class="nav-lang">
+      <a href="?lang=es" class="lang-btn lang-active">ES</a>
+      <span class="lang-sep">/</span>
+      <a href="?lang=en" class="lang-btn">EN</a>
+    </li>
+    <li><a href="/#donar" class="cta">Donar ahora</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open')">✕</button>
+  <a href="/" onclick="document.getElementById('mob').classList.remove('open')">Home</a>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Nosotras <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/nosotras" onclick="document.getElementById('mob').classList.remove('open')">Nosotras</a>
+      <a href="/nosotras/genero" onclick="document.getElementById('mob').classList.remove('open')">Género</a>
+      <a href="/nosotras/sustentabilidad" onclick="document.getElementById('mob').classList.remove('open')">Hábitat Sustentable</a>
+      <a href="/nosotras/interculturalidad" onclick="document.getElementById('mob').classList.remove('open')">Interculturalidad</a>
+      <a href="/nosotras/cohousing" onclick="document.getElementById('mob').classList.remove('open')">Cuidado y Cohousing</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Proyectos <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/proyectos" onclick="document.getElementById('mob').classList.remove('open')">Proyectos</a>
+      <a href="/proyectos/vivienda" onclick="document.getElementById('mob').classList.remove('open')">Barrio Amapolas</a>
+      <a href="/proyectos/productivos" onclick="document.getElementById('mob').classList.remove('open')">Proyectos agroecológicos</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Acciones y Prensa <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/prensa#eventos" onclick="document.getElementById('mob').classList.remove('open')">Eventos / Capacitaciones</a>
+      <a href="/prensa" onclick="document.getElementById('mob').classList.remove('open')">Prensa</a>
+      <a href="/prensa#kit" onclick="document.getElementById('mob').classList.remove('open')">Kit de Prensa</a>
+    </div>
+  </div>
+  <div class="mob-accordion">
+    <button class="mob-acc-btn" onclick="toggleMobAcc(this)">Comunidad <span class="mob-acc-arrow">▾</span></button>
+    <div class="mob-acc-panel">
+      <a href="/comunidad#aliados" onclick="document.getElementById('mob').classList.remove('open')">Aliados</a>
+      <a href="/comunidad#fundaciones" onclick="document.getElementById('mob').classList.remove('open')">Fundaciones y Org.</a>
+      <a href="/comunidad#sponsors" onclick="document.getElementById('mob').classList.remove('open')">Sponsors</a>
+      <a href="/comunidad#donantes" onclick="document.getElementById('mob').classList.remove('open')">Donantes</a>
+    </div>
+  </div>
+  <div class="mob-lang">
+    <a href="?lang=es" class="lang-btn lang-active">ES</a>
+    <span class="lang-sep">/</span>
+    <a href="?lang=en" class="lang-btn">EN</a>
+  </div>
+  <a href="/#donar" onclick="document.getElementById('mob').classList.remove('open')" style="color:var(--rojo)">Donar ahora</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-grid-deco"></div>
+  <div class="hero-body">
+    <div class="hero-breadcrumb">
+      <a href="/">Inicio</a><span>/</span>
+      <span style="color:rgba(255,255,255,.6)">Proyectos</span>
+    </div>
+    <h1 class="hero-title">Construimos<br>con propósito<br>y <span class="accent">con raíces</span></h1>
+    <p class="hero-subtitle">Dos proyectos que articulan vivienda digna, producción sustentable y vínculos interculturales en la Patagonia. Un modelo diseñado para ser replicable.</p>
+  </div>
+  <div class="hero-bottom"></div>
+</div>
+
+<!-- SECCIÓN 1: BARRIO AMAPOLAS -->
+<section class="section-barrio reveal">
+  <span class="section-eyebrow">Proyecto principal · Hábitat comunitario</span>
+  <a href="/proyectos/vivienda" class="featured-card">
+    <div class="featured-card-image">
+      <img src="/proyectos/vivienda.jpeg" alt="Barrio Amapolas: construcción cooperativa de viviendas con bioconstrucción y diseño bioclimático en Bariloche, Patagonia">
+      <span class="featured-card-image-placeholder">Barrio Amapolas</span>
+    </div>
+    <div class="featured-card-body">
+      <p class="featured-card-cat">Hábitat · Cohousing feminista · Bioconstrucción</p>
+      <h2 class="featured-card-title">Barrio Amapolas</h2>
+      <p class="featured-card-desc">Un barrio cooperativo con perspectiva feminista diseñado y construido por quienes lo van a habitar. Bioconstrucción, diseño bioclimático y espacios de cuidado colectivo como infraestructura. Un modelo pensado para ser replicable en otros territorios.</p>
+      <div class="featured-pills">
+        <span class="featured-pill">Cohousing</span>
+        <span class="featured-pill">Bioconstrucción</span>
+        <span class="featured-pill">Perspectiva feminista</span>
+        <span class="featured-pill">Modelo replicable</span>
+      </div>
+      <span class="featured-card-link">Ver proyecto completo →</span>
+    </div>
+  </a>
+</section>
+
+<!-- SECCIÓN 2: PROYECTOS AGROECOLÓGICOS -->
+<section class="section-agro reveal">
+  <a href="/proyectos/productivos" class="agro-card">
+    <div class="agro-card-body">
+      <p class="agro-card-cat">Proyectos productivos · Economía regenerativa</p>
+      <h2 class="agro-card-title">Proyectos<br>agroecológicos</h2>
+      <p class="agro-card-desc">Tres iniciativas en territorio de la Comunidad Mapuche Tambo Báez: apicultura, plantas nativas y cultivo de hongos silvestres. Producción sin agroquímicos que genera autonomía económica para las socias y fortalece el vínculo con el ecosistema patagónico.</p>
+      <span class="agro-card-link">Ver proyectos productivos →</span>
+    </div>
+    <div class="agro-card-tags">
+      <div class="agro-tag"><span class="agro-tag-dot"></span><span class="agro-tag-label">Apiario Colectivo</span></div>
+      <div class="agro-tag"><span class="agro-tag-dot"></span><span class="agro-tag-label">Plantas Nativas</span></div>
+      <div class="agro-tag"><span class="agro-tag-dot"></span><span class="agro-tag-label">Hongos Silvestres</span></div>
+    </div>
+  </a>
+</section>
+
+<!-- INFO COMPLEMENTARIA -->
+<div class="info-complement reveal">
+  <div class="info-block">
+    <h4>Nuestro enfoque</h4>
+    <p>Cada proyecto no es independiente: el apiario poliniza las plantas nativas, los hongos aprovechan el territorio mapuche, y todo fortalece la autonomía económica que hace posible la vivienda. Un ecosistema, no una lista de actividades.</p>
+  </div>
+  <div class="info-block">
+    <h4>Alianzas activas</h4>
+    <ul>
+      <li>Comunidad Mapuche Tambo Báez</li>
+      <li>Lofche Buenuleo</li>
+      <li>CIEFAP · Parques Nacionales</li>
+      <li>Fondo Mujeres del Sur</li>
+      <li>HIC · Red TEC IN HAB</li>
+    </ul>
+  </div>
+  <div class="info-block">
+    <h4>Financiamiento</h4>
+    <p>Los proyectos productivos son financiados principalmente por el Fondo Mujeres del Sur — tres ciclos consecutivos de financiamiento en 2023, 2024 y 2025 — y donaciones de personas y organizaciones que acompañan la iniciativa.</p>
+  </div>
+</div>
+
+<!-- DONAR CTA -->
+<div class="donar-cta reveal">
+  <div class="donar-cta-text">
+    <p class="eyebrow">Apoyá el trabajo</p>
+    <h2>Estos proyectos<br>existen gracias a<br>quienes los sostienen</h2>
+    <p>Tu donación financia materiales, herramientas y formación para las socias de la cooperativa. Cooperativa con personería jurídica INAES N°63884.</p>
+  </div>
+  <div class="donar-cta-actions">
+    <a href="/#donar" class="btn-primary">Donar ahora →</a>
+    <a href="/comunidad" class="btn-outline-white">Otras formas de colaborar</a>
+    <p class="donar-note">Donaciones trazables · INAES N°63884</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/logo_amapolas.png" alt="Amapolas Cooperativa de Viviendas" class="foot-logo">
+      <p class="foot-desc">Una cooperativa de viviendas conducida por mujeres y disidencias en la Patagonia argentina. Construimos autonomía y comunidad desde Bariloche.</p>
+    </div>
+    <div class="foot-col"><h5>La cooperativa</h5><ul><li><a href="/nosotras">Quiénes somos</a></li><li><a href="/proyectos">Proyectos</a></li><li><a href="/comunidad">Comunidad</a></li><li><a href="/prensa">Prensa</a></li></ul></div>
+    <div class="foot-col"><h5>Colaborar</h5><ul><li><a href="/#donar">Donar</a></li><li><a href="/comunidad#voluntariado">Voluntariado</a></li><li><a href="/comunidad#fundaciones">Alianzas</a></li><li><a href="/prensa#kit">Kit de Prensa</a></li></ul></div>
+    <div class="foot-col"><h5>Contacto</h5><ul><li><a href="mailto:contacto@amapolas.coop">contacto@amapolas.coop</a></li><li><a href="mailto:prensa@amapolas.coop">prensa@amapolas.coop</a></li><li><a href="#">Bariloche, Río Negro</a></li><li><a href="#" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Amapolas Cooperativa de Viviendas Ltda. · INAES N°63884 · Bariloche, Río Negro</p>
+    <div class="foot-social">
+      <a href="#" title="Instagram" aria-label="Instagram">ig</a>
+      <a href="#" title="Facebook" aria-label="Facebook">fb</a>
+      <a href="#" title="WhatsApp" aria-label="WhatsApp">wa</a>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="stop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<script>
+const navbar = document.getElementById('navbar');
+function updateNav() {
+  const past = window.scrollY > 40;
+  navbar.classList.toggle('over-bg', !past);
+  navbar.classList.toggle('solid', past);
+}
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+window.addEventListener('scroll', () => {
+  document.getElementById('stop').classList.toggle('on', window.scrollY > 500);
+}, {passive:true});
+document.getElementById('ham').addEventListener('click', () =>
+  document.getElementById('mob').classList.add('open')
+);
+function toggleMobAcc(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+const io = new IntersectionObserver(
+  entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+  {threshold:.04}
+);
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
